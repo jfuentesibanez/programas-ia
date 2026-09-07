@@ -70,7 +70,7 @@ button { font: inherit; }
 }
 .hero__top {
   position: relative; display: flex; justify-content: space-between; align-items: center;
-  padding: 26px 0;
+  padding-top: 26px; padding-bottom: 26px;
 }
 .hero__logo { height: 44px; width: auto; }
 .hero__pill {
@@ -81,7 +81,7 @@ button { font: inherit; }
 .hero__pill--live { border-color: #7ED4A0; color: #C9F5DA; }
 .hero__pill--live::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #7ED4A0; margin-right: 8px; animation: pulse 1.6s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: .35 } }
-.hero__body { position: relative; padding: 40px 0 44px; }
+.hero__body { position: relative; padding-top: 40px; padding-bottom: 44px; }
 .hero__eyebrow {
   display: flex; align-items: center; gap: 10px; margin: 0 0 14px;
   font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.78);
@@ -104,7 +104,7 @@ button { font: inherit; }
   background: rgba(255,255,255,.88); backdrop-filter: saturate(160%) blur(12px);
   border-bottom: 1px solid var(--border);
 }
-.actions__inner { display: flex; gap: 10px; align-items: center; padding: 12px 0; overflow-x: auto; scrollbar-width: none; }
+.actions__inner { display: flex; gap: 10px; align-items: center; padding-top: 12px; padding-bottom: 12px; overflow-x: auto; scrollbar-width: none; }
 .actions__inner::-webkit-scrollbar { display: none; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
