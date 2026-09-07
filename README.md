@@ -14,20 +14,28 @@ cliente/sesion/index.html   # la página
 cliente/sesion/og.jpg       # imagen 1200×630 para la vista previa al compartir
 ```
 
-Ejemplo publicado: `roche/tarragona/` → https://jfuentesibanez.github.io/programas-ia/roche/tarragona/
+Sesiones:
+
+| Carpeta | Sesión | Estado |
+|---|---|---|
+| `roche/tarragona/` | Taller de IA · Roche · 22 abr 2025 (ejemplo de partida) | celebrada |
+| `roche/barcelona-2026-11/` | Taller de IA · Roche · 23 nov 2026 · Barcelona | borrador: lugar y código de material pendientes |
+
+URL una vez publicado: `https://jfuentesibanez.github.io/programas-ia/<cliente>/<sesion>/`
 
 ## Qué incluye cada página
 
-- **Hero** con imagen, logo del cliente, título, fecha, horario y lugar. Píldora con cuenta atrás
-  ("Faltan 12 días", "Mañana", "En curso", "Sesión celebrada") que se actualiza sola.
-- **Barra de acciones** fija: descargar `.ics`, abrir en Google Calendar, cómo llegar (Google Maps) y
-  compartir (WhatsApp, LinkedIn, correo, copiar enlace; en móvil usa el menú nativo de compartir).
+- **Hero** con imagen, logo del cliente y, debajo, la cuenta atrás ("Faltan 12 días", "Mañana",
+  "En curso", "Sesión celebrada") que se actualiza sola. Título, fecha, horario y lugar.
+- **Barra de acciones** fija: descargar `.ics`, abrir en Google Calendar y cómo llegar (Google Maps).
+  No hay botón de compartir: son sesiones cerradas a las que invita el cliente.
+- **Cinta "Borrador · no difundir"** (`draft: true` en `SESSION`) mientras falten datos por confirmar.
 - **Mapa de la sesión**: barra con un tramo por bloque, proporcional a su duración. Al pasar el ratón
   se ilumina el bloque correspondiente y al pulsar se abre y se hace scroll hasta él.
-- **Programa** en línea de tiempo, con cada bloque desplegable (resumen, puntos y herramientas).
+- **Programa** en línea de tiempo, con cada bloque desplegable (resumen, puntos y nombres de las
+  herramientas, sin enlaces: el listado con enlaces se entrega después en herramientas-ia).
   Botón "Expandir todo". El día del taller marca en verde el bloque en curso.
-- **Herramientas** deduplicadas a partir de los bloques, con enlace y en qué bloque se usan.
-- **Antes de venir** (trae tu ordenador, cuenta, sin experiencia previa), **lugar** y **facilitador**.
+- **Antes de venir** (trae tu ordenador, sin experiencia previa), **lugar** y **facilitador**.
 - **CTA "Guarda la fecha"** y pie con el logo secundario del cliente y el código de material.
 - **Estilos de impresión**: al imprimir o "Guardar como PDF" se abren todos los bloques y se ocultan
   los botones, para seguir teniendo el PDF de siempre si hace falta.
@@ -37,7 +45,7 @@ Ejemplo publicado: `roche/tarragona/` → https://jfuentesibanez.github.io/progr
 1. Copia la carpeta de una sesión existente: `cp -r roche/tarragona cliente/sesion`.
 2. En `index.html`, edita el objeto `SESSION` al principio del `<script>`: título, fecha, horario,
    lugar, facilitador, bloques (hora inicio/fin, tipo `block` o `soft`, resumen, puntos, herramientas)
-   y código de referencia. Todo lo demás se genera solo.
+   y código de referencia. Deja `draft: true` hasta tener todos los datos. Todo lo demás se genera solo.
 3. Retematiza con los tokens del bloque `:root` (`--brand`, `--brand-dark`, `--brand-soft`, `--brand-tint`).
 4. Sustituye los logos y la imagen del hero (están en base64 en `src="data:..."`):
    logo blanco en el hero, logo secundario en el pie y favicon.

@@ -74,7 +74,7 @@ button { font: inherit; }
     linear-gradient(90deg, rgba(0,60,130,.35), transparent 60%);
 }
 .hero__top {
-  position: relative; display: flex; justify-content: space-between; align-items: center;
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
   padding-top: 26px; padding-bottom: 26px;
 }
 .hero__logo { height: 44px; width: auto; }
@@ -198,7 +198,6 @@ button { font: inherit; }
   border: 1px solid var(--border); background: var(--bg-soft); color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: none;
   transition: border-color .15s, background .15s;
 }
-.chip:hover { border-color: var(--brand); background: var(--brand-soft); color: var(--brand-dark); }
 .chip--tag { background: var(--ok-soft); color: var(--ok); border-color: transparent; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 640px) {
   .timeline::before { left: 15px; }
@@ -212,18 +211,6 @@ button { font: inherit; }
   .tl-card__time-inline { display: inline-block !important; }
 }
 .tl-card__time-inline { display: none; font-family: var(--mono); font-size: 12px; color: var(--ink-mute); }
-
-/* ── TOOLS GRID ── */
-.tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
-.tool {
-  display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius);
-  background: #fff; text-decoration: none; color: var(--ink); transition: border-color .15s, box-shadow .15s, transform .15s;
-}
-.tool:hover { border-color: var(--brand); box-shadow: var(--shadow); transform: translateY(-2px); }
-.tool__name { font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; align-items: center; }
-.tool__name::after { content: "↗"; color: var(--brand); font-weight: 400; }
-.tool__use { font-size: 13px; color: var(--ink-mute); }
-.tool__blocks { font-family: var(--mono); font-size: 11px; color: var(--brand-dark); letter-spacing: .04em; }
 
 /* ── LOGÍSTICA ── */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
@@ -269,18 +256,6 @@ button { font: inherit; }
 .footer__logo { height: 34px; width: auto; }
 .footer__code { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
 
-/* ── SHARE POPOVER ── */
-.share { position: relative; }
-.share__menu {
-  position: absolute; top: calc(100% + 8px); right: 0; min-width: 220px; background: #fff; border: 1px solid var(--border);
-  border-radius: 12px; box-shadow: var(--shadow); padding: 6px; z-index: 30; display: none;
-}
-.share__menu[data-open="true"] { display: block; }
-.share__menu a, .share__menu button {
-  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 10px 12px; border: 0; background: none;
-  border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 14px; cursor: pointer;
-}
-.share__menu a:hover, .share__menu button:hover { background: var(--brand-soft); color: var(--brand-dark); }
 .toast {
   position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px); opacity: 0;
   background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 100px; font-size: 14px; z-index: 40; pointer-events: none;
@@ -291,7 +266,7 @@ button { font: inherit; }
 /* ── PRINT (para exportar a PDF desde el navegador) ── */
 @media print {
   @page { margin: 14mm; }
-  .actions, .share__menu, .toast, .map__hint, .cta .btn, .venue__actions, .hero__pill { display: none !important; }
+  .actions, .toast, .map__hint, .cta .btn, .venue__actions, .hero__pill { display: none !important; }
   .hero { min-height: 0; color: #000; background: none; }
   .hero__img, .hero__scrim { display: none; }
   .hero__logo { filter: none; }
@@ -342,22 +317,9 @@ button { font: inherit; }
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
       Cómo llegar
     </a>
-    <div class="share">
-      <button class="btn" id="btnShare" type="button" aria-haspopup="true" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
-        Compartir
-      </button>
-      <div class="share__menu" id="shareMenu" role="menu">
-        <a id="shareWa" href="#" target="_blank" rel="noopener" role="menuitem">💬 WhatsApp</a>
-        <a id="shareLi" href="#" target="_blank" rel="noopener" role="menuitem">💼 LinkedIn</a>
-        <a id="shareMail" href="#" role="menuitem">✉️ Correo</a>
-        <button id="shareCopy" type="button" role="menuitem">🔗 Copiar enlace</button>
-      </div>
-    </div>
     <span class="actions__spacer"></span>
     <div class="actions__nav">
       <a href="#agenda">Programa</a>
-      <a href="#herramientas">Herramientas</a>
       <a href="#logistica">Logística</a>
       <a href="#lugar">Lugar</a>
     </div>
@@ -384,18 +346,6 @@ button { font: inherit; }
     </div>
 
     <ol class="timeline" id="timeline"></ol>
-  </section>
-
-  <!-- ═════════════════ HERRAMIENTAS ═════════════════ -->
-  <section class="section" id="herramientas">
-    <div class="section__head">
-      <div>
-        <p class="eyebrow">Herramientas</p>
-        <h2 class="section__title">Lo que vas a tocar</h2>
-        <p class="section__desc">Todas se manejan desde el navegador. No hace falta instalar nada; si quieres ir por delante, crea una cuenta gratuita en las que te llamen la atención.</p>
-      </div>
-    </div>
-    <div class="tools" id="tools"></div>
   </section>
 
   <!-- ═════════════════ LOGÍSTICA ═════════════════ -->
@@ -473,7 +423,6 @@ const SESSION = {
   agendaDesc: "Tres horas en bloques cortos y prácticos. Pulsa cada bloque para ver qué haremos y con qué herramientas.",
   bring: [
     { icon: "laptop", title: "Trae tu ordenador", text: "Es un taller práctico: todo lo verás en tu propia pantalla. No olvides el cargador.", emph: true },
-    { icon: "account", title: "Una cuenta de ChatGPT", text: "Con la versión gratuita basta para seguir la sesión. Si ya tienes Plus, mejor aún." },
     { icon: "spark", title: "Sin experiencia previa", text: "No hace falta saber programar ni haber usado IA antes. Empezamos desde cero." }
   ],
   blocks: [
@@ -607,7 +556,7 @@ const SESSION = {
     const isBlock = b.kind === "block";
     if (isBlock) blockNum++;
     const num = isBlock ? blockNum : "·";
-    const chips = (b.tools || []).map(t => `<a class="chip" href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.name)}</a>`).join("");
+    const chips = (b.tools || []).map(t => `<span class="chip">${esc(t.name)}</span>`).join("");
     const points = (b.points || []).map(p => `<li>${esc(p)}</li>`).join("");
     return `
     <li class="tl-item ${isBlock ? "" : "tl-item--soft"}" data-block="${i}">
@@ -650,23 +599,6 @@ const SESSION = {
   allCards().forEach(c => c.addEventListener("toggle", syncToggle));
   syncToggle();
   window.addEventListener("beforeprint", () => allCards().forEach(c => c.open = true));
-
-  /* ── Herramientas (deduplicadas de los bloques) ── */
-  const toolMap = new Map();
-  let n = 0;
-  SESSION.blocks.forEach(b => {
-    if (b.kind === "block") n++;
-    (b.tools || []).forEach(t => {
-      const cur = toolMap.get(t.name) || { ...t, blocks: [] };
-      cur.blocks.push(n); toolMap.set(t.name, cur);
-    });
-  });
-  $("#tools").innerHTML = Array.from(toolMap.values()).map(t => `
-    <a class="tool" href="${esc(t.url)}" target="_blank" rel="noopener">
-      <span class="tool__name">${esc(t.name)}</span>
-      <span class="tool__use">${esc(new URL(t.url).hostname.replace("www.", ""))}</span>
-      <span class="tool__blocks">${t.blocks.length > 1 ? "Bloques " : "Bloque "}${t.blocks.join(" · ")}</span>
-    </a>`).join("");
 
   /* ── Logística ── */
   $("#bring").innerHTML = SESSION.bring.map(c => `
@@ -729,30 +661,6 @@ const SESSION = {
     + "&dates=" + fmtUtc(startUtc) + "/" + fmtUtc(endUtc)
     + "&details=" + encodeURIComponent(SESSION.lead + "\n\n" + window.location.href.split("#")[0])
     + "&location=" + encodeURIComponent(location);
-
-  /* ── Compartir ── */
-  const shareUrl = window.location.href.split("#")[0];
-  const shareText = SESSION.title + " · " + cap(longDate) + " · " + SESSION.start + " · " + SESSION.venue.name;
-  const menu = $("#shareMenu"), shareBtn = $("#btnShare");
-  $("#shareWa").href = "https://wa.me/?text=" + encodeURIComponent(shareText + "\n" + shareUrl);
-  $("#shareLi").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(shareUrl);
-  $("#shareMail").href = "mailto:?subject=" + encodeURIComponent(SESSION.title + " · " + SESSION.client.name) + "&body=" + encodeURIComponent(shareText + "\n\n" + shareUrl);
-  $("#shareCopy").addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText(shareUrl); toast("Enlace copiado"); } catch { prompt("Copia el enlace:", shareUrl); }
-    closeMenu();
-  });
-  function closeMenu() { menu.dataset.open = "false"; shareBtn.setAttribute("aria-expanded", "false"); }
-  shareBtn.addEventListener("click", async (e) => {
-    e.stopPropagation();
-    if (navigator.share && /Mobi|Android/i.test(navigator.userAgent)) {
-      try { await navigator.share({ title: SESSION.title, text: shareText, url: shareUrl }); } catch {}
-      return;
-    }
-    const open = menu.dataset.open !== "true";
-    menu.dataset.open = String(open); shareBtn.setAttribute("aria-expanded", String(open));
-  });
-  document.addEventListener("click", (e) => { if (!menu.contains(e.target)) closeMenu(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
 
   /* ── Toast ── */
   let toastTimer;
