@@ -73,6 +73,7 @@ button { font: inherit; }
     linear-gradient(180deg, rgba(10,20,40,.35) 0%, rgba(10,20,40,.15) 35%, rgba(10,20,40,.78) 75%, rgba(10,20,40,.94) 100%),
     linear-gradient(90deg, rgba(0,60,130,.35), transparent 60%);
 }
+.hero__top, .hero__body { width: 100%; }   /* el hero es flex en columna: sin esto, margin:auto encoge el bloque a su contenido */
 .hero__top {
   position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
   padding-top: 26px; padding-bottom: 26px;
