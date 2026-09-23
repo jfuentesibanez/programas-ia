@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taller de Inteligencia Artificial · Roche · Barcelona</title>
-<meta name="description" content="Taller de Inteligencia Artificial para profesionales sanitarios. Lunes 23 de noviembre de 2026, 17:30–20:30, Barcelona. Investigación, diagnóstico, oficina y agentes.">
+<meta name="description" content="Taller de Inteligencia Artificial para profesionales sanitarios. Lunes 23 de noviembre de 2026, 16:00–19:30, Institut Català d'Oncologia, L'Hospitalet de Llobregat. Investigación, diagnóstico, oficina y agentes.">
 <meta name="theme-color" content="#0066CC">
 <!-- Vista previa al compartir (WhatsApp, LinkedIn, Teams…). La imagen debe ser una URL absoluta. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Taller de Inteligencia Artificial · Roche">
-<meta property="og:description" content="Lunes 23 de noviembre de 2026 · 17:30–20:30 · Barcelona. Cuatro bloques prácticos: investigación, diagnóstico, oficina y agentes.">
+<meta property="og:description" content="Lunes 23 de noviembre de 2026 · 16:00–19:30 · Institut Català d'Oncologia, L'Hospitalet. Cuatro bloques prácticos: investigación, diagnóstico, oficina y agentes.">
 <meta property="og:image" content="https://jfuentesibanez.github.io/programas-ia/roche/barcelona-2026-11/og.jpg">
 <meta property="og:url" content="https://jfuentesibanez.github.io/programas-ia/roche/barcelona-2026-11/">
 <meta property="og:locale" content="es_ES">
@@ -226,6 +226,7 @@ button { font: inherit; }
 
 /* ── VENUE + FACILITADOR ── */
 .split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
+.venue--after { grid-column: 1 / -1; background: var(--brand-tint); border-color: transparent; }
 @media (max-width: 800px) { .split { grid-template-columns: 1fr; } }
 .venue { border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
 .venue h3 { margin: 0; font-size: 20px; letter-spacing: -.01em; }
@@ -399,20 +400,27 @@ button { font: inherit; }
    (además de los tokens de color y los logos del cliente, arriba)
    ═══════════════════════════════════════════════════════════════ */
 const SESSION = {
-  draft: true,                 // cinta "Borrador · no difundir". Pásalo a false cuando el lugar esté confirmado
+  draft: false,                // true muestra la cinta "Borrador · no difundir"
   client: { name: "Roche", refCode: "" },   // refCode: código de material Roche (pendiente para esta edición)
   eyebrow: "Taller de IA generativa · Roche · Barcelona",
   title: "Taller de Inteligencia Artificial",
   lead: "Una tarde práctica, con el ordenador delante, para recorrer los cuatro frentes donde la IA ya cambia el trabajo clínico y científico: investigación, diagnóstico, oficina y agentes.",
   date: "2026-11-23",          // AAAA-MM-DD
-  start: "17:30",
-  end: "20:30",
+  start: "16:00",
+  end: "19:30",
   timeZone: "Europe/Madrid",
   venue: {
-    name: "Barcelona · lugar por confirmar",
-    address: "Dirección pendiente",
-    note: "",
-    mapsQuery: "Barcelona"
+    name: "Institut Català d'Oncologia",
+    address: "Aula Trias · Edifici Principal, planta 1 · Av. Granvia de l'Hospitalet, 199-203 · 08908 L'Hospitalet de Llobregat",
+    note: "Entrada por el vestíbulo principal.",
+    mapsQuery: "Institut Català d'Oncologia, Av. Granvia de l'Hospitalet 199-203, L'Hospitalet de Llobregat"
+  },
+  after: {                     // opcional: plan posterior al taller (déjalo en null si no hay)
+    title: "Y después, cena",
+    text: "Al terminar el taller iremos a cenar al Restaurante La Ermita, a pocos minutos del ICO.",
+    place: "Restaurante La Ermita",
+    address: "Carrer de l'Ermita · L'Hospitalet de Llobregat",
+    mapsQuery: "Restaurante La Ermita, Carrer de l'Ermita, L'Hospitalet de Llobregat"
   },
   facilitator: {
     name: "Javier Fuentes",
@@ -426,28 +434,28 @@ const SESSION = {
     { icon: "spark", title: "Sin experiencia previa", text: "No hace falta saber programar ni haber usado IA antes. Empezamos desde cero." }
   ],
   blocks: [
-    { start: "17:30", end: "17:45", kind: "soft", title: "Introducción",
+    { start: "16:00", end: "16:15", kind: "soft", title: "Introducción",
       summary: "Qué es (y qué no es) la IA generativa en 2026, cómo se organiza la tarde y qué te vas a llevar a casa." },
-    { start: "17:45", end: "18:25", kind: "block", title: "Investigación: análisis de documentación científica",
+    { start: "16:15", end: "17:00", kind: "block", title: "Investigación: análisis de documentación científica",
       summary: "Trabajo con modelos de lenguaje aplicados a la producción científica: buscar, leer y contrastar evidencia con fuentes verificables.",
       points: ["Respuestas clínicas con evidencia citada.", "Comprobar cómo se cita un artículo: si lo apoyan, lo contrastan o solo lo mencionan.", "Mapear la literatura de un tema y descubrir artículos relacionados.", "Deep Research: encargar un informe de estado del arte y auditarlo."],
       tools: [{ name: "OpenEvidence" }, { name: "Scite" }, { name: "ResearchRabbit" }, { name: "Deep Research" }] },
-    { start: "18:25", end: "19:05", kind: "block", title: "Diagnóstico: datos numéricos y razonamiento",
+    { start: "17:00", end: "17:45", kind: "block", title: "Diagnóstico: datos numéricos y razonamiento",
       summary: "Trabajo con datos numéricos para realizar cálculos complejos e inferir resultados a partir de datos médicos.",
       points: ["Subir una tabla de resultados y pedir estadística descriptiva, gráficos e interpretación.", "Modelos de razonamiento: cuándo compensan y cómo auditar su respuesta.", "Un cuaderno con tus guías y protocolos que responde solo con esas fuentes.", "Límites: qué no delegar y cómo verificar antes de fiarte."],
       tools: [{ name: "GPT-5" }, { name: "Claude" }, { name: "NotebookLM" }] },
-    { start: "19:05", end: "19:30", kind: "block", title: "Oficina: presentaciones con IA",
+    { start: "17:45", end: "18:15", kind: "block", title: "Oficina: presentaciones con IA",
       summary: "Elaborar una presentación científica completa a partir de un texto o un artículo, con visuales generados a medida.",
       points: ["De un abstract a una presentación en minutos.", "Convertir texto en diagramas y esquemas visuales.", "Buenas prácticas: plantilla corporativa, revisión de datos y citas."],
       tools: [{ name: "Gamma" }, { name: "Napkin" }] },
-    { start: "19:30", end: "20:10", kind: "block", title: "Agentes: de generar contenido a delegar tareas",
+    { start: "18:15", end: "19:00", kind: "block", title: "Agentes: de generar contenido a delegar tareas",
       summary: "Del avatar que habla por ti al agente que trabaja por ti: vídeo científico multilingüe, asistentes de voz y agentes que ejecutan tareas completas.",
       points: ["Vídeo científico en otros idiomas con avatar.", "Agente de voz para preguntas frecuentes de pacientes o del equipo.", "Agentes que navegan y ejecutan: encargar una tarea de principio a fin (buscar, comparar, rellenar, resumir).", "Dónde encajan hoy en un servicio clínico y qué precauciones exigen."],
       tools: [{ name: "HeyGen" }, { name: "ElevenLabs Agents" }, { name: "ChatGPT Agent" }, { name: "Manus" }] },
-    { start: "20:10", end: "20:25", kind: "soft", title: "Bloque de dudas",
+    { start: "19:00", end: "19:20", kind: "soft", title: "Bloque de dudas",
       summary: "Tiempo abierto para tus casos: trae la pregunta o el problema real que quieras resolver con IA." },
-    { start: "20:25", end: "20:30", kind: "soft", title: "Cierre",
-      summary: "Resumen, recursos para seguir aprendiendo y próximos pasos." }
+    { start: "19:20", end: "19:30", kind: "soft", title: "Cierre",
+      summary: "Resumen, recursos para seguir aprendiendo y próximos pasos. Después, cena en el Restaurante La Ermita." }
   ]
 };
 
@@ -614,6 +622,18 @@ const SESSION = {
       <a class="btn btn--ghost" href="https://maps.apple.com/?q=${encodeURIComponent(SESSION.venue.mapsQuery)}" target="_blank" rel="noopener">Apple Maps</a>
     </div>`;
   $("#btnMaps").href = mapsUrl;
+  if (SESSION.after) {
+    const a = SESSION.after;
+    const afterMaps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(a.mapsQuery);
+    $("#venue").insertAdjacentHTML("afterend", `
+    <div class="venue venue--after">
+      <p class="eyebrow" style="margin:0">Después del taller</p>
+      <h3>${esc(a.title)}</h3>
+      <p>${esc(a.text)}</p>
+      <p style="font-size:14px"><strong>${esc(a.place)}</strong> · ${esc(a.address)}</p>
+      <div class="venue__actions"><a class="btn" href="${afterMaps}" target="_blank" rel="noopener">Cómo llegar al restaurante</a></div>
+    </div>`);
+  }
   const f = SESSION.facilitator;
   $("#person").innerHTML = `
     <div class="person__avatar">${esc(f.initials)}</div>
@@ -626,7 +646,9 @@ const SESSION = {
   const fmtLocal = (t) => SESSION.date.replace(/-/g, "") + "T" + t.replace(":", "") + "00";
   const fmtUtc = (d) => d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + "00Z";
   const location = SESSION.venue.name + ", " + SESSION.venue.address.replace(/ · /g, ", ");
-  const description = SESSION.title + " (" + SESSION.client.name + ").\\nPrograma completo: " + location.replace(/,/g, "\\,") + "\\n" + window.location.href.split("#")[0];
+  const description = SESSION.title + " (" + SESSION.client.name + ").\\nLugar: " + location.replace(/,/g, "\\,")
+    + (SESSION.after ? "\\nDespués: " + (SESSION.after.place + ", " + SESSION.after.address.replace(/ · /g, ", ")).replace(/,/g, "\\,") : "")
+    + "\\nPrograma completo: " + window.location.href.split("#")[0];
   function downloadIcs() {
     const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//N Company//Programas IA//ES", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
       "BEGIN:VEVENT",
