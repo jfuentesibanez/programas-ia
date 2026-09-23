@@ -428,7 +428,7 @@ const SESSION = {
     role: "Facilitador · N Company",
     bio: "Formador en IA aplicada a salud y ciencia. Dirige talleres prácticos para equipos médicos y científicos, con un enfoque de manos en el teclado desde el primer minuto."
   },
-  agendaDesc: "Tres horas en cuatro bloques prácticos: investigación, diagnóstico, oficina y agentes. Pulsa cada bloque para ver qué haremos.",
+  agendaDesc: "Tres horas y media en cuatro bloques prácticos: investigación, diagnóstico, oficina y agentes. Pulsa cada bloque para ver qué haremos.",
   bring: [
     { icon: "laptop", title: "Trae tu ordenador", text: "Es un taller práctico: todo lo verás en tu propia pantalla. No olvides el cargador.", emph: true },
     { icon: "spark", title: "Sin experiencia previa", text: "No hace falta saber programar ni haber usado IA antes. Empezamos desde cero." }
@@ -625,7 +625,7 @@ const SESSION = {
   if (SESSION.after) {
     const a = SESSION.after;
     const afterMaps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(a.mapsQuery);
-    $("#venue").insertAdjacentHTML("afterend", `
+    $("#person").insertAdjacentHTML("afterend", `
     <div class="venue venue--after">
       <p class="eyebrow" style="margin:0">Después del taller</p>
       <h3>${esc(a.title)}</h3>
