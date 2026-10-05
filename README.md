@@ -51,6 +51,9 @@ URL una vez publicado: `https://jfuentesibanez.github.io/programas-ia/<cliente>/
    logo blanco en el hero, logo secundario en el pie y favicon.
 5. Cambia las metaetiquetas `og:*` del `<head>` (título, descripción, URL) y regenera `og.jpg`.
 6. Comprueba la página en local y publica.
+7. Si hace falta un PDF para circular por correo: `node tools/make-pdf.js cliente/sesion` genera
+   `cliente/sesion/programa.pdf` (A4, 2 páginas) a partir de los mismos datos de la página. Con
+   `--con-puntos` incluye también las viñetas de cada bloque (ocupa más de una página).
 
 Los horarios se interpretan en la zona `SESSION.timeZone` (por defecto `Europe/Madrid`), así el
 `.ics` y el enlace de Google Calendar salen correctos aunque cambie el horario de verano.
