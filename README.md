@@ -21,7 +21,7 @@ Sesiones:
 | `roche/tarragona/` | Taller de IA · Roche · 22 abr 2025 (ejemplo de partida) | celebrada |
 | `roche/barcelona-2026-11/` | Taller de IA · Roche · 23 nov 2026 · ICO, L'Hospitalet · 16:00–19:30 | publicada (código de material pendiente) |
 | `roche/zaragoza-2026-10/` | Taller de IA · Roche · 28 oct 2026 · H. C. U. Lozano Blesa, Zaragoza · 16:15–19:30 | publicada (código de material pendiente) |
-| `roche/barcelona-constanza-2026-11/` | Taller de IA · Roche · 5 nov 2026 · NH Barcelona Constanza · 15:30–19:00 (fin por confirmar) · con bloque legal | borrador: hora de fin y código pendientes |
+| `roche/barcelona-constanza-2026-11/` | Taller de IA · Roche · 5 nov 2026 · NH Barcelona Constanza · 16:30–19:30 · con bloque legal | publicada (código de material pendiente) |
 
 URL una vez publicado: `https://jfuentesibanez.github.io/programas-ia/<cliente>/<sesion>/`
 
