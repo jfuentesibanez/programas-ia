@@ -34,8 +34,11 @@ const brandSoft = pick(/--brand-soft: (#[0-9A-Fa-f]{6})/) || "#E8F1FA";
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const toMin = (t) => { const [h, mi] = t.split(":").map(Number); return h * 60 + mi; };
-const [y, mo, d] = SESSION.date.split("-").map(Number);
-const longDate = new Intl.DateTimeFormat("es-ES", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: SESSION.timeZone }).format(new Date(Date.UTC(y, mo - 1, d, 12)));
+/* Fecha o lugar sin confirmar (date/venue a null): se imprimen como "por confirmar" */
+const dateTBD = !SESSION.date;
+if (!SESSION.venue) SESSION.venue = { name: "Lugar por confirmar", address: "Se indicará en la invitación", note: "" };
+const [y, mo, d] = (SESSION.date || "2000-01-01").split("-").map(Number);
+const longDate = dateTBD ? "fecha por confirmar" : new Intl.DateTimeFormat("es-ES", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: SESSION.timeZone }).format(new Date(Date.UTC(y, mo - 1, d, 12)));
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const total = toMin(SESSION.end) - toMin(SESSION.start);
 const durText = Math.floor(total / 60) + " h" + (total % 60 ? " " + (total % 60) + " min" : "");
@@ -189,8 +192,8 @@ const page = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>
     ${after}
   </div>
   <div class="cta">
-    <h2>Guarda la fecha</h2>
-    <p>${esc(cap(longDate))}, de ${esc(SESSION.start)} a ${esc(SESSION.end)}, en ${esc(SESSION.venue.name)}. Trae tu ordenador y resérvate la tarde.</p>
+    <h2>${dateTBD ? "Muy pronto" : "Guarda la fecha"}</h2>
+    <p>${dateTBD ? "Te avisaremos de la fecha y el lugar en cuanto estén confirmados. Trae tu ordenador y un tema con el que trabajar." : `${esc(cap(longDate))}, de ${esc(SESSION.start)} a ${esc(SESSION.end)}, en ${esc(SESSION.venue.name)}. Trae tu ordenador y resérvate la tarde.`}</p>
   </div>
   <div class="footer">
     ${logoFooter ? `<img src="${logoFooter}" alt="">` : "<span></span>"}

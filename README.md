@@ -22,6 +22,7 @@ Sesiones:
 | `roche/barcelona-2026-11/` | Taller de IA · Roche · 23 nov 2026 · ICO, L'Hospitalet · 16:00–19:30 | publicada (código de material pendiente) |
 | `roche/zaragoza-2026-10/` | Taller de IA · Roche · 28 oct 2026 · H. C. U. Lozano Blesa, Zaragoza · 16:15–19:30 | publicada (código de material pendiente) |
 | `roche/barcelona-constanza-2026-11/` | Taller de IA · Roche · 5 nov 2026 · NH Barcelona Constanza · 16:30–19:30 · con bloque legal | publicada (código de material pendiente) |
+| `novartis/taller-generico/` | Taller genérico de IA · Novartis · de la búsqueda al borrador de publicación o póster | borrador (fecha y lugar por confirmar) |
 
 URL una vez publicado: `https://jfuentesibanez.github.io/programas-ia/<cliente>/<sesion>/`
 
@@ -56,6 +57,9 @@ URL una vez publicado: `https://jfuentesibanez.github.io/programas-ia/<cliente>/
 7. Si hace falta un PDF para circular por correo: `node tools/make-pdf.js cliente/sesion` genera
    `cliente/sesion/programa.pdf` (A4, 2 páginas) a partir de los mismos datos de la página. Con
    `--con-puntos` incluye también las viñetas de cada bloque (ocupa más de una página).
+
+Si aún no hay fecha o lugar, pon `date: null` o `venue: null`: la página y el PDF muestran "por confirmar"
+y se ocultan la cuenta atrás, los botones de calendario y los mapas.
 
 Los horarios se interpretan en la zona `SESSION.timeZone` (por defecto `Europe/Madrid`), así el
 `.ics` y el enlace de Google Calendar salen correctos aunque cambie el horario de verano.
