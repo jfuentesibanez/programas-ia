@@ -31,6 +31,8 @@ const logoFooter = pick(/class="footer__logo" src="(data:[^"]+)"/);
 const brand = pick(/--brand: (#[0-9A-Fa-f]{6})/) || "#0066CC";
 const brandDark = pick(/--brand-dark: (#[0-9A-Fa-f]{6})/) || "#004E9F";
 const brandSoft = pick(/--brand-soft: (#[0-9A-Fa-f]{6})/) || "#E8F1FA";
+const brandTint = pick(/--brand-tint: (#[0-9A-Fa-f]{6})/) || "#F3F7FC";
+const ink = pick(/--ink: (#[0-9A-Fa-f]{6})/) || "#16191F";
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const toMin = (t) => { const [h, mi] = t.split(":").map(Number); return h * 60 + mi; };
@@ -80,7 +82,7 @@ const refCode = SESSION.client?.refCode || "";
 const page = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>${esc(SESSION.title)} · ${esc(SESSION.client.name)}</title>
 <style>
   @page { size: A4; margin: 0; }
-  :root { --brand: ${brand}; --brand-dark: ${brandDark}; --brand-soft: ${brandSoft}; --ink: #16191F; --soft: #4A5568; --mute: #6B7280; --line: #E2E8F0; --tint: #F3F7FC;
+  :root { --brand: ${brand}; --brand-dark: ${brandDark}; --brand-soft: ${brandSoft}; --ink: ${ink}; --soft: #4A5568; --mute: #6B7280; --line: #E2E8F0; --tint: ${brandTint};
           --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
   * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { margin: 0; padding: 0; font-family: var(--font); color: var(--ink); font-size: 10.5pt; line-height: 1.45; }

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taller de Inteligencia Artificial · Novartis</title>
 <meta name="description" content="Taller práctico de IA generativa para profesionales sanitarios y científicos: de la búsqueda de información al borrador de una publicación científica o un póster.">
-<meta name="theme-color" content="#0460A9">
+<meta name="theme-color" content="#161616">
 <!-- Vista previa al compartir (WhatsApp, LinkedIn, Teams…). La imagen debe ser una URL absoluta. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Taller de Inteligencia Artificial · Novartis">
@@ -21,11 +21,11 @@
    ─────────────────────────────────────────────── */
 :root {
   color-scheme: light;
-  --brand: #0460A9;
-  --brand-dark: #034A84;
-  --brand-soft: #E6EFF7;
-  --brand-tint: #F2F6FA;
-  --ink: #16191F;
+  --brand: #E64A00;
+  --brand-dark: #BF360C;
+  --brand-soft: #FFEDE4;
+  --brand-tint: #FFF6F1;
+  --ink: #161616;
   --ink-soft: #4A5568;
   --ink-mute: #6B7280;
   --border: #E2E8F0;
@@ -71,8 +71,8 @@ button { font: inherit; }
 .hero__scrim {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(10,20,40,.35) 0%, rgba(10,20,40,.15) 35%, rgba(10,20,40,.78) 75%, rgba(10,20,40,.94) 100%),
-    linear-gradient(90deg, rgba(4,60,110,.40), transparent 60%);
+    linear-gradient(180deg, rgba(22,22,22,.35) 0%, rgba(22,22,22,.15) 35%, rgba(22,22,22,.78) 75%, rgba(22,22,22,.94) 100%),
+    linear-gradient(90deg, rgba(22,22,22,.45), transparent 60%);
 }
 .hero__top, .hero__body { width: 100%; }   /* el hero es flex en columna: sin esto, margin:auto encoge el bloque a su contenido */
 .hero__top {
@@ -100,7 +100,7 @@ button { font: inherit; }
 .hero__lead { margin: 0 0 30px; font-size: clamp(16px, 1.6vw, 19px); color: rgba(255,255,255,.82); max-width: 56ch; }
 .facts { display: flex; flex-wrap: wrap; gap: 14px 34px; margin: 0; padding: 0; }
 .fact { display: flex; gap: 12px; align-items: flex-start; min-width: 200px; }
-.fact svg { width: 22px; height: 22px; flex: none; margin-top: 3px; color: #9FC8FF; }
+.fact svg { width: 22px; height: 22px; flex: none; margin-top: 3px; color: #FF9A6B; }
 .fact dt { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 0 0 2px; }
 .fact dd { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.3; }
 .fact dd small { display: block; font-weight: 400; font-size: 14px; color: rgba(255,255,255,.75); margin-top: 2px; }
@@ -122,7 +122,7 @@ button { font: inherit; }
 .btn svg { width: 17px; height: 17px; }
 .btn:hover { border-color: var(--brand); color: var(--brand); transform: translateY(-1px); }
 .btn--primary { background: var(--brand); border-color: var(--brand); color: #fff; }
-.btn--primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); color: #fff; box-shadow: 0 8px 20px rgba(4,96,169,.25); }
+.btn--primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); color: #fff; box-shadow: 0 8px 20px rgba(230,74,0,.25); }
 .btn--ghost { border-color: transparent; background: transparent; }
 .actions__spacer { flex: 1; }
 .actions__nav { display: flex; gap: 4px; }
@@ -168,7 +168,7 @@ button { font: inherit; }
   content: ""; position: absolute; left: 50%; top: 22px; width: 14px; height: 14px; border-radius: 50%;
   transform: translateX(-50%); background: #fff; border: 3px solid var(--brand);
 }
-.tl-item--soft .tl-item__dot::before { border-color: #C3CFDD; }
+.tl-item--soft .tl-item__dot::before { border-color: #D6CFCB; }
 .tl-item--now .tl-item__dot::before { border-color: #2FB36B; box-shadow: 0 0 0 5px rgba(47,179,107,.2); }
 .tl-card {
   border: 1px solid var(--border); border-radius: var(--radius); background: #fff; overflow: hidden;
@@ -217,7 +217,7 @@ button { font: inherit; }
 /* ── LOGÍSTICA ── */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
 .card { padding: 22px; border-radius: var(--radius); background: var(--brand-tint); border: 1px solid transparent; }
-.card__icon { width: 40px; height: 40px; border-radius: 12px; background: #fff; display: grid; place-items: center; color: var(--brand); margin-bottom: 14px; box-shadow: 0 2px 8px rgba(4,96,169,.10); }
+.card__icon { width: 40px; height: 40px; border-radius: 12px; background: #fff; display: grid; place-items: center; color: var(--brand); margin-bottom: 14px; box-shadow: 0 2px 8px rgba(230,74,0,.10); }
 .card__icon svg { width: 22px; height: 22px; }
 .card h3 { margin: 0 0 6px; font-size: 16px; }
 .card p { margin: 0; font-size: 14px; color: var(--ink-soft); }
