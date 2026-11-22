@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI-Powered Practice · Johnson &amp; Johnson</title>
+<meta name="description" content="AI for the Clinic: a hands-on training series for premium ophthalmology clinic teams in the MEDCEE region. Five connected sessions over about 12 weeks.">
+<meta name="theme-color" content="#EB1700">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The AI-Powered Practice · AI for the Clinic">
+<meta property="og:description" content="A hands-on series for ophthalmology clinic teams: create patient content, support patients along the journey and learn from real cases. Five sessions, about 12 weeks.">
+<meta property="og:image" content="https://jfuentesibanez.github.io/programas-ia/jnj/ai-powered-practice/og.jpg">
+<meta property="og:url" content="https://jfuentesibanez.github.io/programas-ia/jnj/ai-powered-practice/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23EB1700'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+/* ── CLIENT THEME: change these tokens to rebrand ── */
+:root {
+  color-scheme: light;
+  --brand: #EB1700;
+  --brand-dark: #B81200;
+  --brand-soft: #FDE6E3;
+  --brand-tint: #FFF5F3;
+  --ink: #1A1A1A;
+  --ink-soft: #4A4F57;
+  --ink-mute: #6B7078;
+  --border: #E5E7EB;
+  --bg: #FFFFFF;
+  --bg-soft: #F7F7F8;
+  --online: #2D5BD7;
+  --online-soft: #E8EEFC;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(20, 20, 24, 0.08);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: var(--brand); }
+button { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .container { padding: 0 16px; } }
+
+/* Draft ribbon */
+.draft { display: none; background: #FF9F1C; color: #1a1a1a; text-align: center; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; padding: 8px 16px; }
+.draft[data-on="true"] { display: block; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; color: #fff; background: radial-gradient(120% 140% at 85% 20%, #2a1412 0%, #161618 55%, #111113 100%); }
+.hero__iris { position: absolute; right: -170px; top: 50%; width: 640px; height: 640px; transform: translateY(-50%); opacity: .95; pointer-events: none; }
+.hero__inner { position: relative; padding-top: 30px; padding-bottom: 46px; }
+.hero__logo { width: 210px; height: auto; color: #fff; display: block; }
+.hero__body { margin-top: 84px; max-width: 640px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--brand); margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
+.hero .eyebrow { color: #FF8A7A; }
+.hero h1 { font-size: clamp(38px, 6.4vw, 66px); line-height: 1; letter-spacing: -.03em; margin: 0 0 18px; font-weight: 800; }
+.hero h1 span { color: var(--brand); }
+.hero__lead { font-size: 18px; color: rgba(255,255,255,.84); margin: 0; max-width: 560px; }
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 40px; background: rgba(255,255,255,.14); border-radius: 12px; overflow: hidden; }
+.fact { background: rgba(17,17,19,.72); padding: 16px 18px; }
+.fact dt { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: 0 0 4px; }
+.fact dd { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.3; }
+.fact dd small { display: block; font-weight: 400; font-size: 13px; color: rgba(255,255,255,.65); margin-top: 2px; }
+@media (max-width: 760px) { .facts { grid-template-columns: 1fr 1fr; } .hero__body { margin-top: 56px; } .hero__iris { opacity: .45; right: -280px; } }
+
+/* Section nav */
+.nav { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.nav .container { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.nav a { flex: none; text-decoration: none; color: var(--ink-soft); font-size: 14px; font-weight: 600; padding: 14px 12px; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a.is-active { color: var(--ink); border-bottom-color: var(--brand); }
+
+/* Sections */
+section { padding: 72px 0 0; scroll-margin-top: 48px; }
+section:last-of-type { padding-bottom: 72px; }
+h2 { font-size: clamp(28px, 3.6vw, 38px); letter-spacing: -.02em; line-height: 1.1; margin: 0 0 12px; font-weight: 800; }
+.section-lead { color: var(--ink-soft); font-size: 17px; margin: 0 0 32px; max-width: 700px; }
+
+/* Pillars */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.pillar { border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; position: relative; background: var(--bg); }
+.pillar__n { font-family: var(--mono); font-weight: 800; font-size: 13px; color: var(--brand); letter-spacing: .1em; }
+.pillar h3 { font-size: 20px; margin: 10px 0 8px; letter-spacing: -.01em; }
+.pillar p { margin: 0; color: var(--ink-soft); }
+.rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 18px; }
+.rule { background: var(--bg-soft); border-radius: var(--radius); padding: 20px; }
+.rule svg { width: 26px; height: 26px; color: var(--brand); }
+.rule h4 { margin: 10px 0 4px; font-size: 16px; }
+.rule p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+@media (max-width: 860px) { .pillars { grid-template-columns: 1fr; } .rules { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .rules { grid-template-columns: 1fr; } }
+
+/* Series map */
+.map { border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 28px 22px; background: linear-gradient(180deg, var(--bg-soft), var(--bg)); }
+.map__track { position: relative; height: 128px; margin: 0 22px; }
+.map__line { position: absolute; left: 0; right: 0; top: 40px; height: 2px; background: repeating-linear-gradient(90deg, var(--border) 0 6px, transparent 6px 11px); }
+.map__node { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; background: none; border: 0; cursor: pointer; padding: 0; width: 120px; }
+.map__dot { width: 80px; height: 80px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 22px; border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--border); transition: transform .15s; }
+.map__node[data-format="inperson"] .map__dot { background: var(--brand); color: #fff; }
+.map__node[data-format="online"] .map__dot { background: var(--online-soft); color: var(--online); width: 56px; height: 56px; margin-top: 12px; font-size: 18px; }
+.map__node:hover .map__dot, .map__node:focus-visible .map__dot { transform: scale(1.08); }
+.map__label { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); line-height: 1.25; text-align: center; }
+.map__weeks { display: flex; justify-content: space-between; margin: 14px 22px 0; font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: .08em; text-transform: uppercase; }
+.map__legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13.5px; color: var(--ink-soft); }
+.map__legend span { display: inline-flex; align-items: center; gap: 8px; }
+.sw { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.sw--ip { background: var(--brand); } .sw--on { background: var(--online-soft); box-shadow: inset 0 0 0 2px var(--online); } .sw--as { width: 18px; height: 2px; border-radius: 0; background: repeating-linear-gradient(90deg, var(--ink-mute) 0 4px, transparent 4px 7px); }
+@media (max-width: 700px) {
+  .map__track { height: auto; margin: 0; display: grid; gap: 10px; }
+  .map__line, .map__weeks { display: none; }
+  .map__node { position: static; transform: none; width: auto; flex-direction: row; gap: 14px; text-align: left; }
+  .map__node .map__dot, .map__node[data-format="online"] .map__dot { width: 44px; height: 44px; margin: 0; font-size: 16px; flex: none; }
+  .map__label { text-align: left; font-size: 15px; }
+}
+
+/* Sessions */
+.sessions { display: grid; gap: 14px; margin-top: 28px; }
+.session { border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: box-shadow .2s, border-color .2s; scroll-margin-top: 64px; }
+.session.is-open { box-shadow: var(--shadow); }
+.session.is-flash { border-color: var(--brand); }
+.session__head { width: 100%; display: grid; grid-template-columns: 54px 1fr auto; gap: 18px; align-items: center; text-align: left; background: none; border: 0; padding: 20px 22px; cursor: pointer; }
+.session__num { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-weight: 800; font-size: 22px; }
+.session[data-format="inperson"] .session__num { background: var(--brand); color: #fff; }
+.session[data-format="online"] .session__num { background: var(--online-soft); color: var(--online); }
+.session__title { display: block; font-size: 19px; font-weight: 750; letter-spacing: -.01em; margin: 0 0 6px; line-height: 1.25; }
+.session__meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--bg-soft); color: var(--ink-soft); }
+.tag--ip { background: var(--brand-soft); color: var(--brand-dark); }
+.tag--on { background: var(--online-soft); color: var(--online); }
+.session__chev { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); display: grid; place-items: center; transition: transform .2s; }
+.session.is-open .session__chev { transform: rotate(180deg); }
+.session__body { padding: 0 22px 22px 94px; }
+.session__goal { font-size: 16.5px; font-weight: 600; margin: 0 0 12px; }
+.session__body ul { margin: 0 0 16px; padding-left: 20px; color: var(--ink-soft); }
+.session__body li { margin: 0 0 6px; }
+.assign { display: flex; gap: 12px; align-items: flex-start; background: var(--bg-soft); border-radius: 10px; padding: 12px 14px; font-size: 14.5px; color: var(--ink-soft); }
+.assign b { color: var(--ink); }
+.assign svg { flex: none; width: 20px; height: 20px; color: var(--ink-mute); margin-top: 1px; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.btn-ghost { background: none; border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.btn-ghost:hover { border-color: var(--ink-mute); }
+.note { margin-top: 18px; border-left: 3px solid var(--brand); padding: 4px 0 4px 16px; color: var(--ink-soft); font-size: 15px; }
+@media (max-width: 600px) { .session__head { grid-template-columns: 44px 1fr auto; gap: 12px; padding: 16px; } .session__num { width: 44px; height: 44px; font-size: 18px; } .session__body { padding: 0 16px 18px; } }
+
+/* Audience */
+.roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.role { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; }
+.role svg { width: 40px; height: 40px; padding: 9px; border-radius: 10px; background: var(--brand-tint); color: var(--brand); }
+.role h3 { margin: 0 0 4px; font-size: 16.5px; }
+.role p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.callout { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.callout div { background: var(--brand-tint); border-radius: var(--radius); padding: 18px 22px; }
+.callout b { display: block; font-size: 22px; letter-spacing: -.01em; color: var(--brand-dark); }
+.callout span { color: var(--ink-soft); font-size: 15px; }
+@media (max-width: 760px) { .roles, .callout { grid-template-columns: 1fr; } }
+
+/* Cases */
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.case { padding: 24px; position: relative; }
+.case + .case { border-left: 1px solid var(--border); }
+.case__step { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); }
+.case h3 { margin: 8px 0 6px; font-size: 18px; }
+.case p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+@media (max-width: 760px) { .cases { grid-template-columns: 1fr; } .case + .case { border-left: 0; border-top: 1px solid var(--border); } }
+
+/* Logistics */
+.logi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.logi div { border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+.logi h3 { margin: 0 0 4px; font-size: 15px; font-family: var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+.logi p { margin: 0; color: var(--ink); font-size: 15px; }
+.bring { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+.bring div { border-radius: var(--radius); padding: 20px 22px; background: var(--bg-soft); }
+.bring div:first-child { background: var(--brand); color: #fff; }
+.bring div:first-child p { color: rgba(255,255,255,.88); }
+.bring h3 { margin: 0 0 4px; font-size: 17px; }
+.bring p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+@media (max-width: 860px) { .logi, .bring { grid-template-columns: 1fr; } }
+
+/* Facilitator */
+.person { display: grid; grid-template-columns: 76px 1fr; gap: 20px; align-items: start; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.avatar { width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 26px; }
+.person h3 { margin: 0 0 2px; font-size: 20px; }
+.person .who { margin: 0 0 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+.person p { margin: 0; color: var(--ink-soft); }
+
+/* CTA + footer */
+.cta { margin-top: 72px; border-radius: 20px; padding: 44px; color: #fff; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); }
+.cta h2 { color: #fff; }
+.cta p { margin: 0; color: rgba(255,255,255,.9); font-size: 17px; max-width: 640px; }
+footer { border-top: 1px solid var(--border); margin-top: 72px; padding: 28px 0 40px; }
+footer .container { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer__logo { width: 170px; height: auto; color: var(--brand); display: block; }
+.footer__ref { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); }
+
+/* Role path filter */
+.paths { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 18px; }
+.paths__label { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mute); margin-right: 4px; }
+.chip { border: 1px solid var(--border); background: var(--bg); border-radius: 999px; padding: 7px 14px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--ink-soft); transition: all .15s; }
+.chip:hover { border-color: var(--ink-mute); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.paths__out { flex-basis: 100%; margin: 6px 0 0; font-size: 15px; color: var(--ink-soft); min-height: 1.5em; }
+.paths__out b { color: var(--ink); }
+.map__node, .session { transition: opacity .25s, filter .25s, box-shadow .2s, border-color .2s; }
+.is-dim { opacity: .35; filter: grayscale(.6); }
+.foryou { display: none; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--ink); color: #fff; }
+.session.is-match .foryou { display: inline-block; }
+@media print { .paths { display: none; } }
+/* Print: everything open, no navigation */
+@media print {
+  @page { size: A4; margin: 12mm 0; }
+  @page :first { margin-top: 0; }
+  html { font-size: 13px; } body { font-size: 13px; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .nav, .draft, .btn-ghost, .session__chev, .map__legend { display: none !important; }
+  .hero__inner { padding-top: 14mm; padding-bottom: 12mm; }
+  .hero__body { margin-top: 18mm; }
+  .container { padding: 0 14mm; max-width: none; }
+  section { padding-top: 26px; }
+  section:last-of-type { padding-bottom: 0; }
+  .section-lead { margin-bottom: 16px; }
+  .session__body[hidden] { display: block !important; }
+  .session { break-inside: avoid; box-shadow: none !important; }
+  .session__head { padding: 14px 16px; }
+  .session__body { padding: 0 16px 14px 88px; }
+  .pillar, .rule, .role, .case, .logi div, .bring div, .person, .map, .callout div { break-inside: avoid; }
+  .page-break { break-before: page; }
+  .cta { margin-top: 28px; padding: 26px; break-inside: avoid; }
+  footer { margin-top: 24px; padding-bottom: 0; }
+  .hero__iris { right: -120px; width: 520px; height: 520px; }
+}
+</style>
+</head>
+<body>
+
+<div class="draft" id="draft">Draft · do not circulate</div>
+
+<header class="hero">
+  <svg class="hero__iris" id="iris" viewBox="-320 -320 640 640" aria-hidden="true"></svg>
+  <div class="container hero__inner">
+    <svg class="hero__logo" role="img" aria-label="Johnson &amp; Johnson" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576.77 53.67"><path d="m57.04,49.2c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m79.99,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m31.23,0c-7.99,0-14,3.37-14,10.56,0,6.09,4.18,9.39,8.87,10.56l7.33,1.83c3.89.95,5.65,2.35,5.65,5.43,0,3.74-2.64,5.87-7.26,5.87-4.99,0-7.55-2.42-8.36-8.5l-7.77,2.2c.44,6.31,6.31,10.19,15.18,10.19,9.9,0,15.25-4.62,15.25-11.95,0-6.89-4.77-9.75-9.75-11l-7.04-1.76c-3.52-.88-5.06-2.49-5.06-4.84,0-2.93,2.49-4.69,6.23-4.69,4.4,0,7.11,2.42,7.48,7.04l7.33-2.2c-.88-5.13-5.94-8.72-14.08-8.72m36.36,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m42.23,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m128.52,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m79.99,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m31.23,0c-7.99,0-14,3.37-14,10.56,0,6.09,4.18,9.39,8.87,10.56l7.33,1.83c3.89.95,5.65,2.35,5.65,5.43,0,3.74-2.64,5.87-7.26,5.87-4.99,0-7.55-2.42-8.36-8.5l-7.77,2.2c.44,6.31,6.31,10.19,15.18,10.19,9.9,0,15.25-4.62,15.25-11.95,0-6.89-4.77-9.75-9.75-11l-7.04-1.76c-3.52-.88-5.06-2.49-5.06-4.84,0-2.93,2.49-4.69,6.23-4.69,4.4,0,7.11,2.42,7.48,7.04l7.33-2.2c-.88-5.13-5.94-8.72-14.08-8.72m36.36,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m42.23,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24M34.02,1.17h-9.09v37.9c0,6.16-2.35,9.82-7.92,9.82s-7.92-3.89-7.92-10.56v-7.04l-9.09,2.27v3.15c0,9.6,4.77,16.94,17.01,16.94s17.01-7.33,17.01-16.94V1.17m54.69,0h-8.65v51.32h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24-5.43,0-8.43,2.35-10.12,5.35h-.44V1.17m263.64,0h-9.09v37.9c0,6.16-2.35,9.82-7.92,9.82s-7.92-3.89-7.92-10.56v-7.04l-9.09,2.27v3.15c0,9.6,4.77,16.94,17.01,16.94s17.01-7.33,17.01-16.94V1.17m54.69,0h-8.65v51.32h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24-5.43,0-8.43,2.35-10.12,5.35h-.44V1.17m-120.09,47.14c-7.04,0-11.36-5.72-11.36-11.8,0-3.81,1.69-7.33,4.47-9.31l16.57,18.11c-3.08,1.83-6.53,3.01-9.68,3.01m16.13-9.02l-14.37-15.84c2.57-1.03,5.06-1.39,7.11-1.39,5.94,0,9.6,3.45,9.6,9.39,0,2.64-.73,5.35-2.35,7.84m-16.35-17.96l-3.15-3.52c-2.79-3.08-3.59-4.99-3.59-7.26,0-4.25,2.71-6.67,6.96-6.67s6.89,2.49,6.89,7.04c0,4.18-2.05,8.14-7.11,10.41m.44-21.33c-10.12,0-15.1,5.65-15.1,12.68,0,3.81,1.61,7.63,5.87,12.24l.07.15c-7.18,3.45-10.48,9.02-10.48,14.74,0,7.55,5.79,13.86,14.74,13.86,5.13,0,11.14-2.13,16.57-5.94l4.4,4.77h11.51v-.37l-9.38-10.34c3.96-4.69,6.23-9.82,6.23-14.3,0-5.57-3.74-9.31-9.6-9.31-3.08,0-6.53.88-8.8,1.76l-.15-.29c5.57-3.01,7.92-5.79,7.92-9.68,0-5.57-4.99-9.97-13.78-9.97"/></svg>
+    <div class="hero__body">
+      <p class="eyebrow">AI for the Clinic · Training series</p>
+      <h1>The AI&#8209;Powered <span>Practice</span></h1>
+      <p class="hero__lead">A hands-on series for premium ophthalmology clinic teams in the MEDCEE region. Learn to use AI to attract, educate, communicate with and support your patients, and build it on your own clinic's material.</p>
+      <dl class="facts">
+        <div class="fact"><dt>Format</dt><dd>5 sessions<small>2 in person + 3 online</small></dd></div>
+        <div class="fact"><dt>Duration</dt><dd>About 12 weeks<small>One session every 2–3 weeks</small></dd></div>
+        <div class="fact"><dt>Workshops</dt><dd>Prague<small>or another city in the region</small></dd></div>
+        <div class="fact"><dt>Dates</dt><dd id="dates">To be confirmed<small>Start date to follow</small></dd></div>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="container">
+    <a href="#why">Why</a>
+    <a href="#series">The series</a>
+    <a href="#who">Who it's for</a>
+    <a href="#cases">Real cases</a>
+    <a href="#logistics">Logistics</a>
+    <a href="#facilitator">Facilitator</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section id="why">
+    <p class="eyebrow">Why this program</p>
+    <h2>Practical AI to run the clinic as a business</h2>
+    <p class="section-lead">Premium clinics compete on how they attract, inform and look after their patients. The series builds the skills for that on three pillars.</p>
+    <div class="pillars">
+      <div class="pillar"><span class="pillar__n">01</span><h3>Tools for content</h3><p>Create patient education and marketing content faster and at a higher standard.</p></div>
+      <div class="pillar"><span class="pillar__n">02</span><h3>Tools for patient support</h3><p>Improve interaction, engagement and communication along the whole patient journey.</p></div>
+      <div class="pillar"><span class="pillar__n">03</span><h3>Best practices</h3><p>Real examples from other clinics and healthcare teams: a reality you can copy.</p></div>
+    </div>
+    <div class="rules">
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg><h4>A series, not an event</h4><p>Skills need practice and repetition, so the program runs over several weeks.</p></div>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg><h4>Hands-on every time</h4><p>Bring a laptop and build your own examples in every session.</p></div>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5"/><rect x="14" y="4" width="8" height="6" rx="1"/></svg><h4>Blended</h4><p>In-person workshops for the practical work, short online sessions in between.</p></div>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c3 0 6 1.8 6 5"/></svg><h4>For the whole team</h4><p>Doctors, managers, nurses, optometrists, front desk and marketing.</p></div>
+    </div>
+  </section>
+
+  <section id="series">
+    <p class="eyebrow">The series</p>
+    <h2>Five connected sessions</h2>
+    <p class="section-lead">Each session builds on the previous one and uses a different part of the patient journey as its example. Between sessions, each clinic completes a short assignment on its own real material.</p>
+
+    <div class="paths" role="group" aria-label="Show my path">
+      <span class="paths__label">Show my path</span>
+      <button class="chip" type="button" data-role="all" aria-pressed="true">Whole team</button>
+      <button class="chip" type="button" data-role="doctor" aria-pressed="false">Surgeons and doctors</button>
+      <button class="chip" type="button" data-role="manager" aria-pressed="false">Managers and owners</button>
+      <button class="chip" type="button" data-role="care" aria-pressed="false">Nurses and optometrists</button>
+      <button class="chip" type="button" data-role="front" aria-pressed="false">Front desk and marketing</button>
+      <p class="paths__out" id="pathOut" aria-live="polite">Every session is open to the whole team. Pick your role to see where you will get the most.</p>
+    </div>
+
+    <div class="map" aria-label="Series map">
+      <div class="map__track" id="mapTrack"><div class="map__line"></div></div>
+            <div class="map__legend">
+        <span><i class="sw sw--ip"></i> In-person workshop · 3 hours</span>
+        <span><i class="sw sw--on"></i> Online session · 75–90 min</span>
+        <span><i class="sw sw--as"></i> 30-minute assignment between sessions</span>
+      </div>
+    </div>
+
+    <div class="sessions" id="sessions"></div>
+    <div class="toolbar" style="margin-top:14px">
+      <p class="note" style="margin:0">Each session starts with a review of two or three assignments from the previous one. That review is where the repetition happens.</p>
+      <button class="btn-ghost" id="toggleAll" type="button">Expand all</button>
+    </div>
+    <p class="note">The sessions are modular: each one works with or without the others, and they fit inside a wider program. If travel allows only one in-person event, sessions 2 and 5 merge into one full day and the rest stay online.</p>
+  </section>
+
+  <section id="who" class="page-break">
+    <p class="eyebrow">Who it's for</p>
+    <h2>Mixed teams from premium clinics</h2>
+    <p class="section-lead">No technical background is needed. Two or three people per clinic work better than one, because they apply the tools together afterwards.</p>
+    <div class="roles">
+      <div class="role"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><div><h3>Surgeons and doctors</h3><p>Faster preparation of patient explanations, talks and training material. A method to keep up with the literature.</p></div></div>
+      <div class="role"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg><div><h3>Clinic managers and owners</h3><p>A view of where AI saves time and wins patients. A short action plan for the clinic.</p></div></div>
+      <div class="role"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4H9z"/><path d="M6 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1"/><path d="M8 12h8M8 16h5"/></svg><div><h3>Nurses, optometrists and patient counsellors</h3><p>Clear pre-op and post-op instructions, answers to frequent questions, material in the patient's language.</p></div></div>
+      <div class="role"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div><h3>Front desk and marketing staff</h3><p>Templates for messages, reminders, review replies, web and social content.</p></div></div>
+    </div>
+    <div class="callout">
+      <div><b>2–3 people per clinic</b><span>Teams apply the tools together back at the clinic.</span></div>
+      <div><b>20–30 per workshop</b><span>So everyone gets support while they build.</span></div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <p class="eyebrow">Best practices and real cases</p>
+    <h2>See it work for someone like you</h2>
+    <p class="section-lead">Every session includes at least one real case from clinics, hospital teams and medical societies, inside and outside ophthalmology. Each case follows the same short format.</p>
+    <div class="cases">
+      <div class="case"><span class="case__step">Before</span><h3>The situation</h3><p>The task, who did it and how long it took.</p></div>
+      <div class="case"><span class="case__step">Change</span><h3>What the team changed</h3><p>The tool and the exact way they use it.</p></div>
+      <div class="case"><span class="case__step">After</span><h3>The result</h3><p>What improved, and what they would do differently.</p></div>
+    </div>
+    <p class="note">From session 3, the best assignments from the group become cases too. By session 5 you have examples from your own region.</p>
+  </section>
+
+  <section id="logistics">
+    <p class="eyebrow">Format and logistics</p>
+    <h2>How it runs</h2>
+    <p class="section-lead">Everything you need to know before the first session.</p>
+    <div class="logi">
+      <div><h3>Language</h3><p>English. You work in your own language during the exercises: the tools handle all of them.</p></div>
+      <div><h3>Location</h3><p>In-person workshops in Prague or another city of the region, wherever suits the group best.</p></div>
+      <div><h3>Rhythm</h3><p>One session every two to three weeks. The full series takes about 12 weeks.</p></div>
+      <div><h3>Tools</h3><p>General AI assistants (such as ChatGPT, Claude, Copilot or Gemini) and a small set of tools for documents, visuals and video. Free versions are enough for most exercises.</p></div>
+      <div><h3>Materials</h3><p>A prompt library, the templates built in each session and the recordings of the online sessions.</p></div>
+      <div><h3>Patient data</h3><p>No exercise uses identifiable patient data.</p></div>
+    </div>
+    <div class="bring">
+      <div><h3>Bring your laptop</h3><p>One per attendee, with internet access. And the charger.</p></div>
+      <div><h3>No experience needed</h3><p>No coding, no prior use of AI. We start from the basics.</p></div>
+      <div><h3>Bring your material</h3><p>A procedure leaflet, a frequent question, a message you send every week: we use it as the example.</p></div>
+    </div>
+  </section>
+
+  <section id="facilitator">
+    <p class="eyebrow">Facilitator</p>
+    <h2>Who runs the sessions</h2>
+    <div class="person" style="margin-top:24px">
+      <div class="avatar">JF</div>
+      <div>
+        <h3>Javier Fuentes</h3>
+        <p class="who">Facilitator · N Company</p>
+        <p>Trainer in applied AI for healthcare and science. He runs hands-on workshops for medical and clinical teams across Europe, with attendees at the keyboard from the first minute.</p>
+      </div>
+    </div>
+    <div class="cta">
+      <h2>Come as a team</h2>
+      <p>Choose two or three people from your clinic and one patient-facing process you want to improve. You will leave the series with a written AI plan and three working use cases.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <svg class="footer__logo" role="img" aria-label="Johnson &amp; Johnson" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576.77 53.67"><path d="m57.04,49.2c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m79.99,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m31.23,0c-7.99,0-14,3.37-14,10.56,0,6.09,4.18,9.39,8.87,10.56l7.33,1.83c3.89.95,5.65,2.35,5.65,5.43,0,3.74-2.64,5.87-7.26,5.87-4.99,0-7.55-2.42-8.36-8.5l-7.77,2.2c.44,6.31,6.31,10.19,15.18,10.19,9.9,0,15.25-4.62,15.25-11.95,0-6.89-4.77-9.75-9.75-11l-7.04-1.76c-3.52-.88-5.06-2.49-5.06-4.84,0-2.93,2.49-4.69,6.23-4.69,4.4,0,7.11,2.42,7.48,7.04l7.33-2.2c-.88-5.13-5.94-8.72-14.08-8.72m36.36,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m42.23,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m128.52,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m79.99,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m31.23,0c-7.99,0-14,3.37-14,10.56,0,6.09,4.18,9.39,8.87,10.56l7.33,1.83c3.89.95,5.65,2.35,5.65,5.43,0,3.74-2.64,5.87-7.26,5.87-4.99,0-7.55-2.42-8.36-8.5l-7.77,2.2c.44,6.31,6.31,10.19,15.18,10.19,9.9,0,15.25-4.62,15.25-11.95,0-6.89-4.77-9.75-9.75-11l-7.04-1.76c-3.52-.88-5.06-2.49-5.06-4.84,0-2.93,2.49-4.69,6.23-4.69,4.4,0,7.11,2.42,7.48,7.04l7.33-2.2c-.88-5.13-5.94-8.72-14.08-8.72m36.36,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m42.23,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24M34.02,1.17h-9.09v37.9c0,6.16-2.35,9.82-7.92,9.82s-7.92-3.89-7.92-10.56v-7.04l-9.09,2.27v3.15c0,9.6,4.77,16.94,17.01,16.94s17.01-7.33,17.01-16.94V1.17m54.69,0h-8.65v51.32h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24-5.43,0-8.43,2.35-10.12,5.35h-.44V1.17m263.64,0h-9.09v37.9c0,6.16-2.35,9.82-7.92,9.82s-7.92-3.89-7.92-10.56v-7.04l-9.09,2.27v3.15c0,9.6,4.77,16.94,17.01,16.94s17.01-7.33,17.01-16.94V1.17m54.69,0h-8.65v51.32h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24-5.43,0-8.43,2.35-10.12,5.35h-.44V1.17m-120.09,47.14c-7.04,0-11.36-5.72-11.36-11.8,0-3.81,1.69-7.33,4.47-9.31l16.57,18.11c-3.08,1.83-6.53,3.01-9.68,3.01m16.13-9.02l-14.37-15.84c2.57-1.03,5.06-1.39,7.11-1.39,5.94,0,9.6,3.45,9.6,9.39,0,2.64-.73,5.35-2.35,7.84m-16.35-17.96l-3.15-3.52c-2.79-3.08-3.59-4.99-3.59-7.26,0-4.25,2.71-6.67,6.96-6.67s6.89,2.49,6.89,7.04c0,4.18-2.05,8.14-7.11,10.41m.44-21.33c-10.12,0-15.1,5.65-15.1,12.68,0,3.81,1.61,7.63,5.87,12.24l.07.15c-7.18,3.45-10.48,9.02-10.48,14.74,0,7.55,5.79,13.86,14.74,13.86,5.13,0,11.14-2.13,16.57-5.94l4.4,4.77h11.51v-.37l-9.38-10.34c3.96-4.69,6.23-9.82,6.23-14.3,0-5.57-3.74-9.31-9.6-9.31-3.08,0-6.53.88-8.8,1.76l-.15-.29c5.57-3.01,7.92-5.79,7.92-9.68,0-5.57-4.99-9.97-13.78-9.97"/></svg>
+    <span class="footer__ref" id="refCode"></span>
+  </div>
+</footer>
+
+<script>
+/* ── PROGRAM DATA: edit here ── */
+const PROGRAM = {
+  draft: true,              // shows the "Draft · do not circulate" ribbon
+  refCode: "",              // material code for the footer, if J&J provides one
+  dates: null,              // e.g. "From 3 March 2027" once confirmed
+  roles: {
+    doctor:  { label: "surgeons and doctors", takeaway: "Faster preparation of patient explanations, talks and training material, and a method to keep up with the literature." },
+    manager: { label: "managers and owners", takeaway: "A view of where AI saves time and wins patients, and a short action plan for the clinic." },
+    care:    { label: "nurses, optometrists and patient counsellors", takeaway: "Clear pre-op and post-op instructions, answers to frequent questions and material in the patient's language." },
+    front:   { label: "front desk and marketing staff", takeaway: "Templates for messages, reminders, review replies, web and social content." }
+  },
+  sessions: [
+    { n: 1, roles: ["doctor","manager","care","front"], week: 1, format: "online", duration: "75 min", pillar: "Foundations",
+      title: "Kickoff: what AI changes for a clinic", short: "Kickoff",
+      goal: "See what the tools do today on real clinic situations, and leave with your tools ready.",
+      points: [
+        "Live demonstrations: a patient question answered, a procedure explained in plain language, a week of messages drafted.",
+        "Setup of the tools used in the program.",
+        "Each clinic chooses one patient-facing process to improve during the series."
+      ],
+      assignment: "Try the tools on the process your clinic chose and bring one result to the first workshop." },
+    { n: 2, roles: ["doctor","care","front"], week: 4, format: "inperson", duration: "3 hours", pillar: "Tools for content",
+      title: "Content that educates and attracts patients", short: "Content",
+      goal: "Every attendee produces a content pack for their own clinic.",
+      points: [
+        "How to brief an AI assistant: context, audience, tone, examples.",
+        "Patient education: procedure explanations, frequent questions, pre-op and post-op instructions at the right reading level.",
+        "Marketing content: website texts, social posts, newsletters, video scripts for the doctor.",
+        "One source, many languages: adapt the same content to each local language.",
+        "Visuals and short videos from the same material."
+      ],
+      assignment: "Finish one piece of the content pack and test it with a colleague or a patient-facing team member." },
+    { n: 3, roles: ["manager","care","front"], week: 7, format: "online", duration: "90 min", pillar: "Tools for patient support",
+      title: "Patient communication along the journey", short: "Patient journey",
+      goal: "Map your patient journey and build the messages for each step.",
+      points: [
+        "From first contact to follow-up: where patients wait, doubt or drop out.",
+        "Message templates: first reply, appointment reminders, preparation for the consultation, follow-up after surgery.",
+        "Difficult situations: price questions, complaints, replies to online reviews.",
+        "A clinic assistant that answers from the clinic's own documents, for staff use first."
+      ],
+      assignment: "Put two of the new message templates to work in the clinic and note what changed." },
+    { n: 4, roles: ["doctor","manager"], week: 10, format: "online", duration: "90 min", pillar: "Productivity and education",
+      title: "A more productive clinic team", short: "Productivity",
+      goal: "Remove routine work from your week, so you can focus on the patient and on your profession.",
+      points: [
+        "Email, meeting notes, protocols and internal documents.",
+        "Staff onboarding and training material built from existing documents.",
+        "For doctors: summaries of new literature, preparation of talks and courses.",
+        "Clinic numbers in plain language: analyse a spreadsheet of consultations and conversions without formulas."
+      ],
+      assignment: "Choose the three use cases your clinic will complete at the final workshop." },
+    { n: 5, roles: ["doctor","manager","care","front"], week: 12, format: "inperson", duration: "3 hours", pillar: "Best practices",
+      title: "Your clinic's AI playbook", short: "Playbook",
+      goal: "Each clinic leaves with a written plan and three working use cases.",
+      points: [
+        "Best practices and real cases from other clinics and healthcare teams.",
+        "Rules for safe use: patient data, review of clinical content by a professional, accuracy of claims.",
+        "Build time: each team completes its three use cases with support in the room.",
+        "Showcase: teams present their results and copy the best ideas from each other."
+      ],
+      assignment: null }
+  ]
+};
+
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  $("#draft").dataset.on = String(!!PROGRAM.draft);
+  if (PROGRAM.refCode) $("#refCode").textContent = PROGRAM.refCode;
+  if (PROGRAM.dates) $("#dates").innerHTML = esc(PROGRAM.dates);
+
+  /* Iris motif */
+  const iris = $("#iris"); let g = "";
+  const ring = (r, w, o, c) => `<circle r="${r}" fill="none" stroke="${c}" stroke-width="${w}" opacity="${o}"/>`;
+  g += `<defs><radialGradient id="ig"><stop offset="0" stop-color="#EB1700" stop-opacity=".55"/><stop offset=".55" stop-color="#EB1700" stop-opacity=".12"/><stop offset="1" stop-color="#EB1700" stop-opacity="0"/></radialGradient></defs>`;
+  g += `<circle r="300" fill="url(#ig)"/>`;
+  for (let i = 0; i < 120; i++) {
+    const a = (i / 120) * Math.PI * 2, r1 = 62 + (i % 3) * 6, r2 = 190 + ((i * 37) % 70);
+    g += `<line x1="${(Math.cos(a) * r1).toFixed(1)}" y1="${(Math.sin(a) * r1).toFixed(1)}" x2="${(Math.cos(a) * r2).toFixed(1)}" y2="${(Math.sin(a) * r2).toFixed(1)}" stroke="#FF8A7A" stroke-width="1" opacity="${(0.12 + ((i * 13) % 10) / 40).toFixed(2)}"/>`;
+  }
+  g += ring(290, 1, .25, "#fff") + ring(250, 1, .14, "#fff") + ring(200, 2, .3, "#EB1700") + ring(62, 2, .5, "#FF8A7A");
+  g += `<circle r="52" fill="#111113"/><circle cx="-16" cy="-16" r="10" fill="#fff" opacity=".7"/>`;
+  iris.innerHTML = g;
+
+  /* Map and sessions */
+  const track = $("#mapTrack"), list = $("#sessions");
+  const chev = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>`;
+  const clip = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`;
+  PROGRAM.sessions.forEach((s) => {
+    const fmt = s.format === "inperson" ? "In person" : "Online";
+    const pos = ((s.week - 1) / 11) * 100;
+    track.insertAdjacentHTML("beforeend",
+      `<button class="map__node" type="button" data-format="${s.format}" data-target="s${s.n}" style="left:${pos}%" aria-label="Session ${s.n}: ${esc(s.title)}"><span class="map__dot">${s.n}</span><span class="map__label">${esc(s.short)}<br><small style="font-weight:500;color:var(--ink-mute)">Week ${s.week} · ${fmt}</small></span></button>`);
+    list.insertAdjacentHTML("beforeend", `
+      <article class="session" id="s${s.n}" data-format="${s.format}">
+        <button class="session__head" type="button" aria-expanded="false" aria-controls="s${s.n}b">
+          <span class="session__num">${s.n}</span>
+          <span><span class="session__title">${esc(s.title)}</span>
+            <span class="session__meta"><span class="tag ${s.format === "inperson" ? "tag--ip" : "tag--on"}">${fmt}</span><span class="tag">${esc(s.duration)}</span><span class="tag">${esc(s.pillar)}</span><span class="foryou">For you</span></span></span>
+          <span class="session__chev">${chev}</span>
+        </button>
+        <div class="session__body" id="s${s.n}b" hidden>
+          <p class="session__goal">${esc(s.goal)}</p>
+          <ul>${s.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+          ${s.assignment ? `<div class="assign">${clip}<span><b>Before the next session:</b> ${esc(s.assignment)}</span></div>` : ""}
+        </div>
+      </article>`);
+  });
+
+  const setOpen = (el, open) => { el.classList.toggle("is-open", open); el.querySelector(".session__head").setAttribute("aria-expanded", String(open)); el.querySelector(".session__body").hidden = !open; };
+  list.addEventListener("click", (e) => { const h = e.target.closest(".session__head"); if (h) { const s = h.parentElement; setOpen(s, !s.classList.contains("is-open")); syncToggle(); } });
+  track.addEventListener("click", (e) => {
+    const b = e.target.closest(".map__node"); if (!b) return;
+    const s = document.getElementById(b.dataset.target); setOpen(s, true); syncToggle();
+    s.scrollIntoView({ behavior: "smooth", block: "start" });
+    s.classList.add("is-flash"); setTimeout(() => s.classList.remove("is-flash"), 1200);
+  });
+  const all = () => [...list.querySelectorAll(".session")];
+  const syncToggle = () => { $("#toggleAll").textContent = all().every(s => s.classList.contains("is-open")) ? "Collapse all" : "Expand all"; };
+  $("#toggleAll").addEventListener("click", () => { const open = !all().every(s => s.classList.contains("is-open")); all().forEach(s => setOpen(s, open)); syncToggle(); });
+  setOpen(all()[0], true);
+
+  /* Role path */
+  const chips = [...document.querySelectorAll(".paths .chip")];
+  document.querySelector(".paths").addEventListener("click", (e) => {
+    const c = e.target.closest(".chip"); if (!c) return;
+    const role = c.dataset.role;
+    chips.forEach(x => x.setAttribute("aria-pressed", String(x === c)));
+    PROGRAM.sessions.forEach((s) => {
+      const match = role !== "all" && s.roles.includes(role), dim = role !== "all" && !match;
+      document.getElementById("s" + s.n).classList.toggle("is-match", match);
+      document.getElementById("s" + s.n).classList.toggle("is-dim", dim);
+      track.querySelector(`[data-target="s${s.n}"]`).classList.toggle("is-dim", dim);
+    });
+    const out = $("#pathOut");
+    if (role === "all") out.textContent = "Every session is open to the whole team. Pick your role to see where you will get the most.";
+    else {
+      const r = PROGRAM.roles[role], ns = PROGRAM.sessions.filter(s => s.roles.includes(role)).map(s => s.n);
+      out.innerHTML = `<b>For ${esc(r.label)}: sessions ${ns.slice(0, -1).join(", ")} and ${ns.slice(-1)}.</b> ${esc(r.takeaway)}`;
+    }
+  });
+
+  /* Active section in nav */
+  const links = [...document.querySelectorAll(".nav a")];
+  const io = new IntersectionObserver((es) => es.forEach(en => { if (en.isIntersecting) links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + en.target.id)); }), { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main section").forEach(s => io.observe(s));
+})();
+</script>
+</body>
+</html>

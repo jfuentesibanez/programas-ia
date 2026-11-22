@@ -23,6 +23,7 @@ Sesiones:
 | `roche/zaragoza-2026-10/` | Taller de IA · Roche · 28 oct 2026 · H. C. U. Lozano Blesa, Zaragoza · 16:15–19:30 | publicada (código de material pendiente) |
 | `roche/barcelona-constanza-2026-11/` | Taller de IA · Roche · 5 nov 2026 · NH Barcelona Constanza · 16:30–19:30 · con bloque legal | publicada (código de material pendiente) |
 | `novartis/taller-generico/` | Taller genérico de IA · Novartis · de la búsqueda al borrador de publicación o póster | borrador (fecha y lugar por confirmar) |
+| `jnj/ai-powered-practice/` | AI for the Clinic · J&J · serie de 5 sesiones (2 presenciales + 3 online, ~12 semanas) para clínicas de oftalmología MEDCEE · en inglés · selector de ruta por rol | borrador (fechas por confirmar) |
 
 URL una vez publicado: `https://jfuentesibanez.github.io/programas-ia/<cliente>/<sesion>/`
 
