@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AI-Powered Practice · Johnson &amp; Johnson</title>
+<title>The AI-Powered Practice · Program proposal for Johnson &amp; Johnson</title>
 <meta name="description" content="AI for the Clinic: a hands-on training series for premium ophthalmology clinic teams in the MEDCEE region. Five connected sessions over about 12 weeks.">
 <meta name="theme-color" content="#EB1700">
 <meta property="og:type" content="website">
@@ -187,7 +187,7 @@ h2 { font-size: clamp(28px, 3.6vw, 38px); letter-spacing: -.02em; line-height: 1
 .person p { margin: 0; color: var(--ink-soft); }
 
 /* CTA + footer */
-.cta { margin-top: 72px; border-radius: 20px; padding: 44px; color: #fff; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); }
+.cta { margin-top: 48px; border-radius: 20px; padding: 44px; color: #fff; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); }
 .cta h2 { color: #fff; }
 .cta p { margin: 0; color: rgba(255,255,255,.9); font-size: 17px; max-width: 640px; }
 footer { border-top: 1px solid var(--border); margin-top: 72px; padding: 28px 0 40px; }
@@ -208,6 +208,21 @@ footer .container { display: flex; justify-content: space-between; align-items: 
 .foryou { display: none; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--ink); color: #fff; }
 .session.is-match .foryou { display: inline-block; }
 @media print { .paths { display: none; } }
+/* Options and checklist */
+.options { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 14px; }
+.option { border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.option h3 { margin: 0; font-size: 19px; }
+.option p { margin: 0; color: var(--ink-soft); font-size: 15px; flex: 1; }
+.option__fee { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); margin-top: 8px; }
+.option--main { border: 2px solid var(--brand); background: var(--brand-tint); }
+.option__tag { align-self: flex-start; font-size: 12px; font-weight: 700; color: #fff; background: var(--brand); border-radius: 999px; padding: 2px 10px; }
+.sub { font-size: 20px; margin: 40px 0 12px; letter-spacing: -.01em; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.checks label { display: flex; gap: 12px; align-items: center; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; font-size: 15.5px; transition: background .15s; }
+.checks label:hover { background: var(--bg-soft); }
+.checks input { width: 18px; height: 18px; accent-color: var(--brand); flex: none; }
+.checks input:checked + * , .checks label:has(input:checked) { color: var(--ink-mute); text-decoration: line-through; }
+@media (max-width: 760px) { .options { grid-template-columns: 1fr; } }
 /* Print: everything open, no navigation */
 @media print {
   @page { size: A4; margin: 12mm 0; }
@@ -235,21 +250,21 @@ footer .container { display: flex; justify-content: space-between; align-items: 
 </head>
 <body>
 
-<div class="draft" id="draft">Draft · do not circulate</div>
+<div class="draft" id="draft">Program proposal for J&amp;J · draft for review</div>
 
 <header class="hero">
   <svg class="hero__iris" id="iris" viewBox="-320 -320 640 640" aria-hidden="true"></svg>
   <div class="container hero__inner">
     <svg class="hero__logo" role="img" aria-label="Johnson &amp; Johnson" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576.77 53.67"><path d="m57.04,49.2c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m79.99,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m31.23,0c-7.99,0-14,3.37-14,10.56,0,6.09,4.18,9.39,8.87,10.56l7.33,1.83c3.89.95,5.65,2.35,5.65,5.43,0,3.74-2.64,5.87-7.26,5.87-4.99,0-7.55-2.42-8.36-8.5l-7.77,2.2c.44,6.31,6.31,10.19,15.18,10.19,9.9,0,15.25-4.62,15.25-11.95,0-6.89-4.77-9.75-9.75-11l-7.04-1.76c-3.52-.88-5.06-2.49-5.06-4.84,0-2.93,2.49-4.69,6.23-4.69,4.4,0,7.11,2.42,7.48,7.04l7.33-2.2c-.88-5.13-5.94-8.72-14.08-8.72m36.36,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m42.23,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m128.52,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m79.99,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24m31.23,0c-7.99,0-14,3.37-14,10.56,0,6.09,4.18,9.39,8.87,10.56l7.33,1.83c3.89.95,5.65,2.35,5.65,5.43,0,3.74-2.64,5.87-7.26,5.87-4.99,0-7.55-2.42-8.36-8.5l-7.77,2.2c.44,6.31,6.31,10.19,15.18,10.19,9.9,0,15.25-4.62,15.25-11.95,0-6.89-4.77-9.75-9.75-11l-7.04-1.76c-3.52-.88-5.06-2.49-5.06-4.84,0-2.93,2.49-4.69,6.23-4.69,4.4,0,7.11,2.42,7.48,7.04l7.33-2.2c-.88-5.13-5.94-8.72-14.08-8.72m36.36,34.09c-5.65,0-8.8-5.35-8.8-15.03s3.15-15.03,8.8-15.03,8.8,5.28,8.8,15.03-3.15,15.03-8.8,15.03m0-34.09c-11.51,0-17.89,8.58-17.89,19.06s6.38,19.06,17.89,19.06,17.89-8.58,17.89-19.06-6.38-19.06-17.89-19.06m42.23,0c-5.43,0-8.43,2.35-10.12,5.35h-.44v-4.62h-8.65v36.66h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24M34.02,1.17h-9.09v37.9c0,6.16-2.35,9.82-7.92,9.82s-7.92-3.89-7.92-10.56v-7.04l-9.09,2.27v3.15c0,9.6,4.77,16.94,17.01,16.94s17.01-7.33,17.01-16.94V1.17m54.69,0h-8.65v51.32h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24-5.43,0-8.43,2.35-10.12,5.35h-.44V1.17m263.64,0h-9.09v37.9c0,6.16-2.35,9.82-7.92,9.82s-7.92-3.89-7.92-10.56v-7.04l-9.09,2.27v3.15c0,9.6,4.77,16.94,17.01,16.94s17.01-7.33,17.01-16.94V1.17m54.69,0h-8.65v51.32h8.65v-23.68c0-5.42,2.79-8.58,7.26-8.58s6.23,2.86,6.23,7.19v25.07h8.65v-25.15c0-7.55-3.96-12.24-11.58-12.24-5.43,0-8.43,2.35-10.12,5.35h-.44V1.17m-120.09,47.14c-7.04,0-11.36-5.72-11.36-11.8,0-3.81,1.69-7.33,4.47-9.31l16.57,18.11c-3.08,1.83-6.53,3.01-9.68,3.01m16.13-9.02l-14.37-15.84c2.57-1.03,5.06-1.39,7.11-1.39,5.94,0,9.6,3.45,9.6,9.39,0,2.64-.73,5.35-2.35,7.84m-16.35-17.96l-3.15-3.52c-2.79-3.08-3.59-4.99-3.59-7.26,0-4.25,2.71-6.67,6.96-6.67s6.89,2.49,6.89,7.04c0,4.18-2.05,8.14-7.11,10.41m.44-21.33c-10.12,0-15.1,5.65-15.1,12.68,0,3.81,1.61,7.63,5.87,12.24l.07.15c-7.18,3.45-10.48,9.02-10.48,14.74,0,7.55,5.79,13.86,14.74,13.86,5.13,0,11.14-2.13,16.57-5.94l4.4,4.77h11.51v-.37l-9.38-10.34c3.96-4.69,6.23-9.82,6.23-14.3,0-5.57-3.74-9.31-9.6-9.31-3.08,0-6.53.88-8.8,1.76l-.15-.29c5.57-3.01,7.92-5.79,7.92-9.68,0-5.57-4.99-9.97-13.78-9.97"/></svg>
     <div class="hero__body">
-      <p class="eyebrow">AI for the Clinic · Training series</p>
+      <p class="eyebrow">AI for the Clinic · Program proposal for Viola, J&amp;J</p>
       <h1>The AI&#8209;Powered <span>Practice</span></h1>
-      <p class="hero__lead">A hands-on series for premium ophthalmology clinic teams in the MEDCEE region. Learn to use AI to attract, educate, communicate with and support your patients, and build it on your own clinic's material.</p>
+      <p class="hero__lead">A proposal for a hands-on AI series for premium ophthalmology clinic teams in the MEDCEE region: practical skills to attract, educate, communicate with and support their patients, built on each clinic's own material.</p>
       <dl class="facts">
         <div class="fact"><dt>Format</dt><dd>5 sessions<small>2 in person + 3 online</small></dd></div>
         <div class="fact"><dt>Duration</dt><dd>About 12 weeks<small>One session every 2–3 weeks</small></dd></div>
         <div class="fact"><dt>Workshops</dt><dd>Prague<small>or another city in the region</small></dd></div>
-        <div class="fact"><dt>Dates</dt><dd id="dates">To be confirmed<small>Start date to follow</small></dd></div>
+        <div class="fact"><dt>Dates</dt><dd id="dates">To agree<small>With your brief</small></dd></div>
       </dl>
     </div>
   </div>
@@ -263,23 +278,24 @@ footer .container { display: flex; justify-content: space-between; align-items: 
     <a href="#cases">Real cases</a>
     <a href="#logistics">Logistics</a>
     <a href="#facilitator">Facilitator</a>
+    <a href="#next">Next steps</a>
   </div>
 </nav>
 
 <main class="container">
 
   <section id="why">
-    <p class="eyebrow">Why this program</p>
+    <p class="eyebrow">What we heard</p>
     <h2>Practical AI to run the clinic as a business</h2>
-    <p class="section-lead">Premium clinics compete on how they attract, inform and look after their patients. The series builds the skills for that on three pillars.</p>
+    <p class="section-lead">Premium ophthalmology clinics in the MEDCEE region need practical AI skills to attract patients, communicate with them, educate them and support them. The program serves that need with three pillars, and its design follows four rules from our conversation.</p>
     <div class="pillars">
       <div class="pillar"><span class="pillar__n">01</span><h3>Tools for content</h3><p>Create patient education and marketing content faster and at a higher standard.</p></div>
       <div class="pillar"><span class="pillar__n">02</span><h3>Tools for patient support</h3><p>Improve interaction, engagement and communication along the whole patient journey.</p></div>
-      <div class="pillar"><span class="pillar__n">03</span><h3>Best practices</h3><p>Real examples from other clinics and healthcare teams: a reality you can copy.</p></div>
+      <div class="pillar"><span class="pillar__n">03</span><h3>Best practices</h3><p>Real examples from other clinics and healthcare teams: a reality attendees can copy.</p></div>
     </div>
     <div class="rules">
       <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg><h4>A series, not an event</h4><p>Skills need practice and repetition, so the program runs over several weeks.</p></div>
-      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg><h4>Hands-on every time</h4><p>Bring a laptop and build your own examples in every session.</p></div>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg><h4>Hands-on every time</h4><p>Attendees bring a laptop and build their own examples in every session.</p></div>
       <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5"/><rect x="14" y="4" width="8" height="6" rx="1"/></svg><h4>Blended</h4><p>In-person workshops for the practical work, short online sessions in between.</p></div>
       <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c3 0 6 1.8 6 5"/></svg><h4>For the whole team</h4><p>Doctors, managers, nurses, optometrists, front desk and marketing.</p></div>
     </div>
@@ -297,7 +313,7 @@ footer .container { display: flex; justify-content: space-between; align-items: 
       <button class="chip" type="button" data-role="manager" aria-pressed="false">Managers and owners</button>
       <button class="chip" type="button" data-role="care" aria-pressed="false">Nurses and optometrists</button>
       <button class="chip" type="button" data-role="front" aria-pressed="false">Front desk and marketing</button>
-      <p class="paths__out" id="pathOut" aria-live="polite">Every session is open to the whole team. Pick your role to see where you will get the most.</p>
+      <p class="paths__out" id="pathOut" aria-live="polite">Every session is open to the whole team. Pick a role to see which sessions matter most to it.</p>
     </div>
 
     <div class="map" aria-label="Series map">
@@ -335,22 +351,22 @@ footer .container { display: flex; justify-content: space-between; align-items: 
 
   <section id="cases">
     <p class="eyebrow">Best practices and real cases</p>
-    <h2>See it work for someone like you</h2>
+    <h2>People adopt what they see working</h2>
     <p class="section-lead">Every session includes at least one real case from clinics, hospital teams and medical societies, inside and outside ophthalmology. Each case follows the same short format.</p>
     <div class="cases">
       <div class="case"><span class="case__step">Before</span><h3>The situation</h3><p>The task, who did it and how long it took.</p></div>
       <div class="case"><span class="case__step">Change</span><h3>What the team changed</h3><p>The tool and the exact way they use it.</p></div>
       <div class="case"><span class="case__step">After</span><h3>The result</h3><p>What improved, and what they would do differently.</p></div>
     </div>
-    <p class="note">From session 3, the best assignments from the group become cases too. By session 5 you have examples from your own region.</p>
+    <p class="note">From session 3, the best assignments from the group become cases too. By session 5 the group has its own examples from its own region.</p>
   </section>
 
   <section id="logistics">
     <p class="eyebrow">Format and logistics</p>
     <h2>How it runs</h2>
-    <p class="section-lead">Everything you need to know before the first session.</p>
+    <p class="section-lead">How the series runs in practice. Everything here can be adjusted to the wider program.</p>
     <div class="logi">
-      <div><h3>Language</h3><p>English. You work in your own language during the exercises: the tools handle all of them.</p></div>
+      <div><h3>Language</h3><p>English. Attendees work in their own language during the exercises: the tools handle all of them.</p></div>
       <div><h3>Location</h3><p>In-person workshops in Prague or another city of the region, wherever suits the group best.</p></div>
       <div><h3>Rhythm</h3><p>One session every two to three weeks. The full series takes about 12 weeks.</p></div>
       <div><h3>Tools</h3><p>General AI assistants (such as ChatGPT, Claude, Copilot or Gemini) and a small set of tools for documents, visuals and video. Free versions are enough for most exercises.</p></div>
@@ -358,9 +374,9 @@ footer .container { display: flex; justify-content: space-between; align-items: 
       <div><h3>Patient data</h3><p>No exercise uses identifiable patient data.</p></div>
     </div>
     <div class="bring">
-      <div><h3>Bring your laptop</h3><p>One per attendee, with internet access. And the charger.</p></div>
-      <div><h3>No experience needed</h3><p>No coding, no prior use of AI. We start from the basics.</p></div>
-      <div><h3>Bring your material</h3><p>A procedure leaflet, a frequent question, a message you send every week: we use it as the example.</p></div>
+      <div><h3>Equipment</h3><p>One laptop per attendee, with internet access. A room with tables for group work and a projector.</p></div>
+      <div><h3>No experience needed</h3><p>No coding, no prior use of AI. Each session starts from the basics it needs.</p></div>
+      <div><h3>Real clinic material</h3><p>Attendees work on their own leaflets, frequent questions and weekly messages, never on identifiable patient data.</p></div>
     </div>
   </section>
 
@@ -372,12 +388,34 @@ footer .container { display: flex; justify-content: space-between; align-items: 
       <div>
         <h3>Javier Fuentes</h3>
         <p class="who">Facilitator · N Company</p>
-        <p>Trainer in applied AI for healthcare and science. He runs hands-on workshops for medical and clinical teams across Europe, with attendees at the keyboard from the first minute.</p>
+        <p>Trainer in applied AI for healthcare and science. He runs hands-on workshops for medical and clinical teams across Europe and the US, with attendees at the keyboard from the first minute.</p>
       </div>
     </div>
+  </section>
+
+  <section id="next">
+    <p class="eyebrow">Investment and next steps</p>
+    <h2>Three ways to run it</h2>
+    <p class="section-lead">The sessions are modular, so the program can be booked in full, in a compact form or one module at a time.</p>
+    <div class="options">
+      <div class="option option--main"><span class="option__tag">Recommended</span><h3>Full series</h3><p>5 sessions, review of assignments and all materials.</p><span class="option__fee">Fee shared separately</span></div>
+      <div class="option"><h3>Compact</h3><p>1 full in-person day + 3 online sessions.</p><span class="option__fee">Fee shared separately</span></div>
+      <div class="option"><h3>Single module</h3><p>Any one session, inside the wider program.</p><span class="option__fee">Fee shared separately</span></div>
+    </div>
+    <p class="note">Travel and accommodation for the in-person workshops are not included.</p>
+
+    <h3 class="sub">To close the design we need five answers</h3>
+    <ul class="checks" id="checks">
+      <li><label><input type="checkbox"> Expected number of attendees and clinics.</label></li>
+      <li><label><input type="checkbox"> Countries and languages in the group.</label></li>
+      <li><label><input type="checkbox"> Preferred start date and city for the first workshop.</label></li>
+      <li><label><input type="checkbox"> The other topics in the wider program, so the sessions connect with them.</label></li>
+      <li><label><input type="checkbox"> Any rule on the tools attendees may use.</label></li>
+    </ul>
+
     <div class="cta">
-      <h2>Come as a team</h2>
-      <p>Choose two or three people from your clinic and one patient-facing process you want to improve. You will leave the series with a written AI plan and three working use cases.</p>
+      <h2>Next step</h2>
+      <p>A 30-minute call to review this plan together with your brief. Each clinic will leave the series with a written AI plan and three working use cases.</p>
     </div>
   </section>
 
@@ -393,7 +431,7 @@ footer .container { display: flex; justify-content: space-between; align-items: 
 <script>
 /* ── PROGRAM DATA: edit here ── */
 const PROGRAM = {
-  draft: true,              // shows the "Draft · do not circulate" ribbon
+  draft: true,              // shows the "proposal · draft for review" ribbon
   refCode: "",              // material code for the footer, if J&J provides one
   dates: null,              // e.g. "From 3 March 2027" once confirmed
   roles: {
@@ -405,13 +443,13 @@ const PROGRAM = {
   sessions: [
     { n: 1, roles: ["doctor","manager","care","front"], week: 1, format: "online", duration: "75 min", pillar: "Foundations",
       title: "Kickoff: what AI changes for a clinic", short: "Kickoff",
-      goal: "See what the tools do today on real clinic situations, and leave with your tools ready.",
+      goal: "Attendees see what the tools do today on real clinic situations, and leave with their tools ready.",
       points: [
         "Live demonstrations: a patient question answered, a procedure explained in plain language, a week of messages drafted.",
         "Setup of the tools used in the program.",
         "Each clinic chooses one patient-facing process to improve during the series."
       ],
-      assignment: "Try the tools on the process your clinic chose and bring one result to the first workshop." },
+      assignment: "Try the tools on the process the clinic chose and bring one result to the first workshop." },
     { n: 2, roles: ["doctor","care","front"], week: 4, format: "inperson", duration: "3 hours", pillar: "Tools for content",
       title: "Content that educates and attracts patients", short: "Content",
       goal: "Every attendee produces a content pack for their own clinic.",
@@ -425,7 +463,7 @@ const PROGRAM = {
       assignment: "Finish one piece of the content pack and test it with a colleague or a patient-facing team member." },
     { n: 3, roles: ["manager","care","front"], week: 7, format: "online", duration: "90 min", pillar: "Tools for patient support",
       title: "Patient communication along the journey", short: "Patient journey",
-      goal: "Map your patient journey and build the messages for each step.",
+      goal: "Attendees map their patient journey and build the messages for each step.",
       points: [
         "From first contact to follow-up: where patients wait, doubt or drop out.",
         "Message templates: first reply, appointment reminders, preparation for the consultation, follow-up after surgery.",
@@ -435,14 +473,14 @@ const PROGRAM = {
       assignment: "Put two of the new message templates to work in the clinic and note what changed." },
     { n: 4, roles: ["doctor","manager"], week: 10, format: "online", duration: "90 min", pillar: "Productivity and education",
       title: "A more productive clinic team", short: "Productivity",
-      goal: "Remove routine work from your week, so you can focus on the patient and on your profession.",
+      goal: "Attendees remove routine work from their week, so they can focus on the patient and on their profession.",
       points: [
         "Email, meeting notes, protocols and internal documents.",
         "Staff onboarding and training material built from existing documents.",
         "For doctors: summaries of new literature, preparation of talks and courses.",
         "Clinic numbers in plain language: analyse a spreadsheet of consultations and conversions without formulas."
       ],
-      assignment: "Choose the three use cases your clinic will complete at the final workshop." },
+      assignment: "Choose the three use cases the clinic will complete at the final workshop." },
     { n: 5, roles: ["doctor","manager","care","front"], week: 12, format: "inperson", duration: "3 hours", pillar: "Best practices",
       title: "Your clinic's AI playbook", short: "Playbook",
       goal: "Each clinic leaves with a written plan and three working use cases.",
@@ -490,13 +528,13 @@ const PROGRAM = {
         <button class="session__head" type="button" aria-expanded="false" aria-controls="s${s.n}b">
           <span class="session__num">${s.n}</span>
           <span><span class="session__title">${esc(s.title)}</span>
-            <span class="session__meta"><span class="tag ${s.format === "inperson" ? "tag--ip" : "tag--on"}">${fmt}</span><span class="tag">${esc(s.duration)}</span><span class="tag">${esc(s.pillar)}</span><span class="foryou">For you</span></span></span>
+            <span class="session__meta"><span class="tag ${s.format === "inperson" ? "tag--ip" : "tag--on"}">${fmt}</span><span class="tag">${esc(s.duration)}</span><span class="tag">${esc(s.pillar)}</span><span class="foryou">Key session</span></span></span>
           <span class="session__chev">${chev}</span>
         </button>
         <div class="session__body" id="s${s.n}b" hidden>
           <p class="session__goal">${esc(s.goal)}</p>
           <ul>${s.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
-          ${s.assignment ? `<div class="assign">${clip}<span><b>Before the next session:</b> ${esc(s.assignment)}</span></div>` : ""}
+          ${s.assignment ? `<div class="assign">${clip}<span><b>Assignment before the next session:</b> ${esc(s.assignment)}</span></div>` : ""}
         </div>
       </article>`);
   });
@@ -527,12 +565,17 @@ const PROGRAM = {
       track.querySelector(`[data-target="s${s.n}"]`).classList.toggle("is-dim", dim);
     });
     const out = $("#pathOut");
-    if (role === "all") out.textContent = "Every session is open to the whole team. Pick your role to see where you will get the most.";
+    if (role === "all") out.textContent = "Every session is open to the whole team. Pick a role to see which sessions matter most to it.";
     else {
       const r = PROGRAM.roles[role], ns = PROGRAM.sessions.filter(s => s.roles.includes(role)).map(s => s.n);
       out.innerHTML = `<b>For ${esc(r.label)}: sessions ${ns.slice(0, -1).join(", ")} and ${ns.slice(-1)}.</b> ${esc(r.takeaway)}`;
     }
   });
+
+  /* Open questions: remember ticks in this browser */
+  const boxes = [...document.querySelectorAll("#checks input")];
+  try { const saved = JSON.parse(localStorage.getItem("jnj-checks") || "[]"); boxes.forEach((b, i) => b.checked = !!saved[i]); } catch (e) {}
+  document.getElementById("checks").addEventListener("change", () => { try { localStorage.setItem("jnj-checks", JSON.stringify(boxes.map(b => b.checked))); } catch (e) {} });
 
   /* Active section in nav */
   const links = [...document.querySelectorAll(".nav a")];
